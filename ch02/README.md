@@ -206,6 +206,21 @@ int *p1 = &i; *p1 = *p1 * *p1;
 // p1 is pointer to i. The value to which p1 points is now equal to that value squared, i.e i holds the value 1764.
 ```
 
+## Exercise 2.21
+> Explain each of the following definitions. Indicate whether any are illegal and, if so, why.
+
+int i=0;
+(a) double *dp = &i; //dp is a pointer to double. i is an int. Illegal.
+(b) int *ip = i;     //ip is a pointer to int, but it must be initialized with an int address. Illegal.
+(c) int *p = &i;     //p is a pointer to int, and is initialized with the address of int t. Legal.
+
+## Exercise 2.22
+> Assuming p is a pointer to int, explain the following code:
+
+if (p) //...      This conditional returns true is p is pointing to an int. Returns false if p is not initialized or is a nullptr.
+if (*p) //...     This conditional returns true if *p is value other than 0.
+
+
 
 
 
