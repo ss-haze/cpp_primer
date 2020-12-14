@@ -2,7 +2,7 @@
 
 These answers were compiled using the g++ compiler and VS Code on Windows 10.
 
-All corrections and comments are greatfully accepted!
+All corrections and comments are gratefully accepted!
 
 ### Contents
 
