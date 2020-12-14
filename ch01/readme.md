@@ -101,7 +101,7 @@ For x number of different input values, the program will generate x numbers of l
 
 ## [Exercise 1.18](https://github.com/ss-haze/cpp_primer/blob/main/ch01/1-18.cpp)
 
-## [Exercise 1.19]
+## [Exercise 1.19](https://github.com/ss-haze/cpp_primer/blob/main/ch01/1-11.cpp)
 
 ## [Exercise 1.20](https://github.com/ss-haze/cpp_primer/blob/main/ch01/1-21.cpp)
 
@@ -114,7 +114,7 @@ For x number of different input values, the program will generate x numbers of l
 ## Exercise 1.24
 > Test the previous program by giving multiple transactions representing multiple ISBNs. The records for each ISBN should be grouped together.
 
-See [1.22]
+See [1.23](https://github.com/ss-haze/cpp_primer/blob/main/ch01/1-23.cpp)
 
 ## [Exercise 1.25](https://github.com/ss-haze/cpp_primer/blob/main/ch01/1-25.cpp)
 
