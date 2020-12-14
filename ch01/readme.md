@@ -31,7 +31,7 @@ std::cout <<"The sum of " << v1 << " and " << v2 <<" is " < v1 + v2 << std::endl
 ```c++
 /*
 * This is a comment
-/* but this line will end the opening comment brace, making the one on the next line redundant */
+/* but this line incorrectly attempts to nest comments, making the closing comment on the next line redundant */
 */
 int main()
 {
