@@ -2,6 +2,8 @@
 
 These answers were compiled using the g++ compiler and VS Code on Windows 10.
 
+All corrections and comments are greatfully accepted!
+
 ### Contents
 
 * [Chapter 1: Getting Started](https://github.com/ss-haze/cpp_primer/tree/main/ch01)
