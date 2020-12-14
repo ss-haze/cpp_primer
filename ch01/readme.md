@@ -17,10 +17,13 @@ Changing the return to -1 makes the program return a value of 'False'
 
 ## Exercise 1.6
 > Explain whether the following program fragment is legal.
+
 The fragment is illegal because the first two semicolons create separate statements. The ensuing statements must have a std::cout as the left-hand operand before the << operator.
 The easiest solution is simply to delete the first two semicolons and create one statement.
 
-```std::cout <<"The sum of " << v1 << " and " << v2 <<" is " < v1 + v2 << std::endl;```
+```c++
+std::cout <<"The sum of " << v1 << " and " << v2 <<" is " < v1 + v2 << std::endl;
+```
 
 
 
