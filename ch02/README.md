@@ -1,5 +1,6 @@
 ## Exercise 2.1
 > What are the differences between int, long, long long, and short? Between an unsigned and a signed type? Between a float and a double?
+
 An int is guaranteed to have a minimum size of 16 bits (value range is -32767 to 32767).
 A short is guaranteed to have a minimum size of 16 bits (value range is -32767 to 32767). 
 A long is guaranteed to have a minimum size of 32 bits (value range is -2,147,483,647 to 2,147,483,647).
@@ -13,6 +14,7 @@ A double has a minimum size of 10 significant digits.
 
 ## Exercise 2.2
 > To calculate a mortgage payment, what types would you use for the rate, principal, and payment? Explain why you selected each type.
+
 Interest is usually a floating point of up to 4 significant figures, so use float.
 Assuming the principal and payment are below 4bn, use an unsigned long.
 
@@ -29,7 +31,7 @@ std::cout << i - u << std::endl;      //0
 std::cout << u - i << std::endl;      //0
 ```
 
-## [Exercise 2.4]
+## [Exercise 2.4](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-04.cpp)
 
 ## Exercise 2.5
 > Determine the type of each of the following literals. Explain the differences among the literals in each of the four examples:
