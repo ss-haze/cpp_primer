@@ -25,6 +25,93 @@ The easiest solution is simply to delete the first two semicolons and create one
 std::cout <<"The sum of " << v1 << " and " << v2 <<" is " < v1 + v2 << std::endl;
 ```
 
+## Exercise 1.7
+> Compile a program that has incorrectly nested comments.
+
+```c++
+/*
+* This is a comment
+/* But this is considered code */
+*/
+int main()
+{
+  return 0;
+}
+
+## Exercise 1.8
+> Indicate which, if any, of the following output statements are legal:
+
+```
+std::cout <<"/*;                  //legal
+std::cout <<"*/";                 //legal
+std::cout << /* "*/" */;          //illegal
+std::cout << /* "*/" /* "/*" */;  //legal
+```
+Once line three is removed, the output will be: /**/ /*.
+
+## [Exercise 1.9]
+
+## [Exercise 1.10]
+
+## [Exercise 1.11]
+
+ ## Exercise 1.12
+
+ > What does the following for loop do? What is the final value of sum?
+ ```c++
+ int sum = 0;
+for (int i = -100; i <= 100; ++i)
+    sum += i;
+```
+This loops adds the values of -100 to 100 inclusive, which will evaluate to 0.
+
+## [Exercise 1.13]
+
+## Exercise 1.14
+> Compare and contrast the loops that used a for with those using a while. Are there advantages or disadvantages to using either form?
+
+A while loop is best used for an unknown number of iterations, e.g. looping until a certain input value is encountered. A for loop is best used for a finite number of iterations, where the initial value and termination value are given in the loop header.
+
+## Exercise 1.15
+> Write programs that contain the common errors discussed in the box on page 16. Familiarize yourself with the messages the compiler generates.
+
+```c++
+int main()
+{
+  int x=10, y=5;
+  char s= "h";
+  std::cout << x;
+  std::cout << y    //syntax error missing ;
+  std::cout << z;   //declaration error, z not declared
+  s=x;              //type error, char taking value of int, producing unexpected output
+
+return 0;
+}
+
+## [Exercise 1.16]
+
+## Exercise 1.17
+> What happens in the program presented in this section if the input values are all equal? What if there are no duplicated values?
+
+For x number of different input values, the program will generate x numbers of lines, and each line will return the count of each input value.
+
+## [Exercise 1.19]
+
+## [Exercise 1.20]
+
+## [Exercise 1.21]
+
+## [Exercise 1.22]
+
+
+
+
+
+
+
+
+
+
 
 
 
