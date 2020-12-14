@@ -102,6 +102,102 @@ int main()
 }
 ```
 
+## Exercise 2.11
+> Explain whether each of the following is a declaration or a definition:
+
+```
+(a) extern int ix = 1024;     //definition
+(b) int iy;                   //definition
+(c) extern int iz;            //declaration
+```
+
+## Exercise 2.12
+> Which, if any, of the following names are invalid?
+
+```
+(a) int double = 3.14;        //invalid, can't be int and double
+(b) int _;                    //valid
+(c) int catch-22;             //invalid, can't use dash
+(d) int 1_or_2 = 1;           //invalid. Can't start name with a digit.
+(e) double Double = 3.14;     //valid
+```
+
+## Exercise 2.13
+> What is he value of j in the following program?
+```
+int i=42;
+
+int main()
+{
+  int i=100;
+  int j=i;
+}
+// j = 100.
+```
+
+## Exercise 2.14
+> Is the following program legal? If so, what values are printed?
+```
+  int i = 100, sum = 0;
+    for (int i = 0; i != 10; ++i)
+        sum += i;
+    std::cout << i << " " << sum << std::endl;
+```
+The code is legal. The output is: 100 45
+
+## Exercise 2.15
+> Which of the following definitions, if any, are invalid? Why?
+```
+(a) int ival = 1.01;        //valid. Value is narrowed.
+(b) int &rval1 = 1.01;      //invalid. Cannot have non-const reference to literal.
+(c) int &rval2 = ival;      //valid
+(d) int &rval3;             //invalid. val3 is not initialized.
+```
+
+## Exercise 2.16
+> Which, if any, of the following assignments are invalid? If they are valid, explain what they do.
+```
+int i = 0, &r1 = i; double d = 0, &r2 = d;
+
+(a) r2 = 3.14159;     //valid, r2 is reference to d, and d now equals 3.14159
+(b) r2 = r1;          //valid, r1 is a reference to int, and int value is converted to double.
+(c) i = r2;           //valid, r2 is a reference to double, and value will be narrowed to int.
+(d) r1 = d;           //valid, d is a double, so value will be narrowed to int.
+```
+
+## Exercise 2.17
+> What does the following code print?
+```
+int i, &ri = i;
+i = 5; ri = 10;
+std::cout << i << " " << ri << std::endl;
+```
+code prints 10 10
+
+## Exercise 2.18
+> Write code to change the value of a pointer. Write code to change the value to which the pointer points.
+
+```
+int x=10, y=20;
+int *p=&x;
+p=&y;             //change value of p
+*p=x;            //change value to which p points
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
