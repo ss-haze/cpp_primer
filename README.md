@@ -4,7 +4,7 @@ These answers were compiled using the g++ compiler and VS Code on Windows 10.
 
 ### Contents
 
-* [link]Chapter 1: Getting Started(https://github.com/ss-haze/cpp_primer/tree/main/ch01)
+* [Chapter 1: Getting Started](https://github.com/ss-haze/cpp_primer/tree/main/ch01)
 * Part 1: The Basics
   + Chapter 2: Variables and Basic Types
   + Chapter 3: Strings, Vectors and Arrays
