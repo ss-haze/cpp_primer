@@ -31,12 +31,13 @@ std::cout <<"The sum of " << v1 << " and " << v2 <<" is " < v1 + v2 << std::endl
 ```c++
 /*
 * This is a comment
-/* But this is considered code */
+/* but this line will end the opening comment brace, making the one on the next line redundant */
 */
 int main()
 {
   return 0;
 }
+```
 
 ## Exercise 1.8
 > Indicate which, if any, of the following output statements are legal:
@@ -49,11 +50,11 @@ std::cout << /* "*/" /* "/*" */;  //legal
 ```
 Once line three is removed, the output will be: /**/ /*.
 
-## [Exercise 1.9]
+## [Exercise 1.9](https://github.com/ss-haze/cpp_primer/blob/main/ch01/1-09.cpp)
 
-## [Exercise 1.10]
+## [Exercise 1.10](https://github.com/ss-haze/cpp_primer/blob/main/ch01/1-10.cpp)
 
-## [Exercise 1.11]
+## [Exercise 1.11](https://github.com/ss-haze/cpp_primer/blob/main/ch01/1-11.cpp)
 
  ## Exercise 1.12
 
@@ -65,7 +66,8 @@ for (int i = -100; i <= 100; ++i)
 ```
 This loops adds the values of -100 to 100 inclusive, which will evaluate to 0.
 
-## [Exercise 1.13]
+
+## [Exercise 1.13](https://github.com/ss-haze/cpp_primer/blob/main/ch01/1-13.cpp)
 
 ## Exercise 1.14
 > Compare and contrast the loops that used a for with those using a while. Are there advantages or disadvantages to using either form?
@@ -87,21 +89,37 @@ int main()
 
 return 0;
 }
+```
 
-## [Exercise 1.16]
+
+## [Exercise 1.16](https://github.com/ss-haze/cpp_primer/blob/main/ch01/1-16.cpp)
 
 ## Exercise 1.17
 > What happens in the program presented in this section if the input values are all equal? What if there are no duplicated values?
 
 For x number of different input values, the program will generate x numbers of lines, and each line will return the count of each input value.
 
+## [Exercise 1.18](https://github.com/ss-haze/cpp_primer/blob/main/ch01/1-18.cpp)
+
 ## [Exercise 1.19]
 
-## [Exercise 1.20]
+## [Exercise 1.20](https://github.com/ss-haze/cpp_primer/blob/main/ch01/1-21.cpp)
 
-## [Exercise 1.21]
+## [Exercise 1.21](https://github.com/ss-haze/cpp_primer/blob/main/ch01/1-21.cpp)
 
-## [Exercise 1.22]
+## [Exercise 1.22](https://github.com/ss-haze/cpp_primer/blob/main/ch01/1-22.cpp)
+
+## [Exercise 1.23](https://github.com/ss-haze/cpp_primer/blob/main/ch01/1-23.cpp)
+
+## Exercise 1.24
+> Test the previous program by giving multiple transactions representing multiple ISBNs. The records for each ISBN should be grouped together.
+
+See [1.22]
+
+## [Exercise 1.25](https://github.com/ss-haze/cpp_primer/blob/main/ch01/1-25.cpp)
+
+
+
 
 
 
