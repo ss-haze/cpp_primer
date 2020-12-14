@@ -35,28 +35,28 @@ std::cout << u - i << std::endl;      //0
 
 ## Exercise 2.5
 > Determine the type of each of the following literals. Explain the differences among the literals in each of the four examples:
-```
+
 (a) 'a', L'a', "a", L"a"                //char, wide char, string , wide string 
 (b) 10, 10u, 10L, 10uL, 012, 0xC        //int, unsigned int, long, unsigned long int, octal int, hexadecimal int
 (c) 3.14, 3.14f, 3.14L                  //double, float, long double
 (d) 10, 10u, 10., 10e-2                 //int, usigned int, double, double
-```
+
 
 ## Exercise 2.6
 > What, if any, are the differences between the following definitions:
-```
+
 int month = 9, day = 7;     //month is an int of 9, day is an int of 7
 int month = 09, day = 07;   //day holds 7, but month cannot hold 9 because it is an octal value.
-```
+
 
 ## Exericse 2.7
 >What values do these literals represent? What type does each have?
-```
+
 a) "Who goes with F\145rgus?\012"     //two octal char literals: 'e' and New Line
 (b) 3.14e1L                           //long double
 (c) 1024f                             //error should be 1024.0f to represent float
 (d) 3.14L                             //long double
-```
+
 
 ## Exercise 2.8
 > Using escape sequences, write a program to print 2M followed by a newline. Modify the program to print 2, then a tab, then an M, followed by a newline.
@@ -73,7 +73,7 @@ a) "Who goes with F\145rgus?\012"     //two octal char literals: 'e' and New Lin
  ```
 ## Exercise 2.9
 > Explain the following definitions. For those that are illegal, explain what’s wrong and how to correct it.
-```
+
 (a) std::cin >> int input_value;
 //Error. Cannot declare variable in stream operand. Must declare the variable beforehand.
 int input_value;
@@ -88,7 +88,7 @@ int i=3.14;
 
 (d) int i = 3.14;
 //Legal, but i will hold a truncated value of 3.
-```
+
 
 ## Exercise 2.10
 > What are the initial values, if any, of each of the following variables?
@@ -181,8 +181,32 @@ code prints 10 10
 int x=10, y=20;
 int *p=&x;
 p=&y;             //change value of p
-*p=x;            //change value to which p points
+*p=x;             //change value to which p points
 ```
+
+## Exercise 2.19
+> Explain the key differences between pointers and references.
+
+References are not objects, but aliases of other objects.
+A reference cannot be bound to another object.
+A reference must be initialized.
+
+Pointers are objects that hold the address of other objects.
+Pointers can point to other objects.
+A pointer can be declared and a value assigned at a later date.
+
+
+## Exercise 2.20
+> What does the following program do?
+
+```
+int i = 42;     
+int *p1 = &i; *p1 = *p1 * *p1;
+
+// p1 is pointer to i. The value to which p1 points is now equal to that value squared, i.e i holds the value 1764.
+```
+
+
 
 
 
