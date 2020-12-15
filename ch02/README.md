@@ -1,4 +1,5 @@
-## Exercise 2.1
+
+### Exercise 2.1
 > What are the differences between int, long, long long, and short? Between an unsigned and a signed type? Between a float and a double?
 ```
 An int is guaranteed to have a minimum size of 16 bits (value range is -32767 to 32767).
@@ -13,13 +14,13 @@ A float has a minimum size of 6 significant digits.
 A double has a minimum size of 10 significant digits.
 ```
 
-## Exercise 2.2
+### Exercise 2.2
 > To calculate a mortgage payment, what types would you use for the rate, principal, and payment? Explain why you selected each type.
 
 Interest is usually a floating point of up to 4 significant figures, so use float.
 Assuming the principal and payment are below 4bn, use an unsigned long.
 
-## Exercise 2.3
+### Exercise 2.3
 > What output will the following code produce?
 ```
 unsigned u = 10, u2 = 42;
@@ -32,9 +33,9 @@ std::cout << i - u << std::endl;      //0
 std::cout << u - i << std::endl;      //0
 ```
 
-## [Exercise 2.4](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-04.cpp)
+### [Exercise 2.4](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-04.cpp)
 
-## Exercise 2.5
+### Exercise 2.5
 > Determine the type of each of the following literals. Explain the differences among the literals in each of the four examples:
 ```
 (a) 'a', L'a', "a", L"a"                //char, wide char, string , wide string 
@@ -43,14 +44,14 @@ std::cout << u - i << std::endl;      //0
 (d) 10, 10u, 10., 10e-2                 //int, usigned int, double, double
 ```
 
-## Exercise 2.6
+### Exercise 2.6
 > What, if any, are the differences between the following definitions:
 ```
 int month = 9, day = 7;     //month is an int of 9, day is an int of 7
 int month = 09, day = 07;   //day holds 7, but month cannot hold 9 because it is an octal value.
 ```
 
-## Exericse 2.7
+### Exericse 2.7
 >What values do these literals represent? What type does each have?
 ```
 a) "Who goes with F\145rgus?\012"     //two octal char literals: 'e' and New Line
@@ -59,7 +60,7 @@ a) "Who goes with F\145rgus?\012"     //two octal char literals: 'e' and New Lin
 (d) 3.14L                             //long double
 ```
 
-## Exercise 2.8
+### Exercise 2.8
 > Using escape sequences, write a program to print 2M followed by a newline. Modify the program to print 2, then a tab, then an M, followed by a newline.
 ```c++
 #include <iostream>
@@ -71,8 +72,10 @@ a) "Who goes with F\145rgus?\012"     //two octal char literals: 'e' and New Lin
    
    return 0;
  }
+
  ```
-## Exercise 2.9
+ 
+### Exercise 2.9
 > Explain the following definitions. For those that are illegal, explain what’s wrong and how to correct it.
 ```
 (a) std::cin >> int input_value;
@@ -91,7 +94,7 @@ int i=3.14;
 //Legal, but i will hold a truncated value of 3.
 ```
 
-## Exercise 2.10
+### Exercise 2.10
 > What are the initial values, if any, of each of the following variables?
 ```c++
 std::string global_str;           //empty string
@@ -103,7 +106,7 @@ int main()
 }
 ```
 
-## Exercise 2.11
+### Exercise 2.11
 > Explain whether each of the following is a declaration or a definition:
 
 ```
@@ -112,7 +115,7 @@ int main()
 (c) extern int iz;            //declaration
 ```
 
-## Exercise 2.12
+### Exercise 2.12
 > Which, if any, of the following names are invalid?
 
 ```
@@ -123,7 +126,7 @@ int main()
 (e) double Double = 3.14;     //valid
 ```
 
-## Exercise 2.13
+### Exercise 2.13
 > What is he value of j in the following program?
 ```
 int i=42;
@@ -136,7 +139,7 @@ int main()
 // j = 100.
 ```
 
-## Exercise 2.14
+### Exercise 2.14
 > Is the following program legal? If so, what values are printed?
 ```
   int i = 100, sum = 0;
@@ -146,7 +149,7 @@ int main()
 ```
 The code is legal. The output is: 100 45
 
-## Exercise 2.15
+### Exercise 2.15
 > Which of the following definitions, if any, are invalid? Why?
 ```
 (a) int ival = 1.01;        //valid. Value is narrowed.
@@ -155,7 +158,7 @@ The code is legal. The output is: 100 45
 (d) int &rval3;             //invalid. val3 is not initialized.
 ```
 
-## Exercise 2.16
+### Exercise 2.16
 > Which, if any, of the following assignments are invalid? If they are valid, explain what they do.
 ```
 int i = 0, &r1 = i; double d = 0, &r2 = d;
@@ -166,7 +169,7 @@ int i = 0, &r1 = i; double d = 0, &r2 = d;
 (d) r1 = d;           //valid, d is a double, so value will be narrowed to int.
 ```
 
-## Exercise 2.17
+### Exercise 2.17
 > What does the following code print?
 ```
 int i, &ri = i;
@@ -175,7 +178,7 @@ std::cout << i << " " << ri << std::endl;
 ```
 code prints 10 10
 
-## Exercise 2.18
+### Exercise 2.18
 > Write code to change the value of a pointer. Write code to change the value to which the pointer points.
 
 ```
@@ -185,7 +188,7 @@ p=&y;             //change value of p
 *p=x;             //change value to which p points
 ```
 
-## Exercise 2.19
+### Exercise 2.19
 > Explain the key differences between pointers and references.
 ```
 References are not objects, but aliases of other objects.
@@ -197,7 +200,7 @@ Pointers can point to other objects.
 A pointer can be declared and a value assigned at a later date.
 ```
 
-## Exercise 2.20
+### Exercise 2.20
 > What does the following program do?
 
 ```
@@ -207,7 +210,7 @@ int *p1 = &i; *p1 = *p1 * *p1;
 // p1 is pointer to i. The value to which p1 points is now equal to that value squared, i.e i holds the value 1764.
 ```
 
-## Exercise 2.21
+### Exercise 2.21
 > Explain each of the following definitions. Indicate whether any are illegal and, if so, why.
 ```
 int i=0;
@@ -216,19 +219,19 @@ int i=0;
 (c) int *p = &i;     //p is a pointer to int, and is initialized with the address of int t. Legal.
 ```
 
-## Exercise 2.22
+### Exercise 2.22
 > Assuming p is a pointer to int, explain the following code:
 ```
 if (p) //...      This conditional returns true is p is pointing to an int. Returns false if p is not initialized or is a nullptr.
 if (*p) //...     This conditional returns true if *p is value other than 0.
 ```
 
-## Exercise 2.23
+### Exercise 2.23
 > Given a pointer p, can you determine whether p points to a valid object? If so, how? If not, why not?
 
 No. If the object a pointer points to is destroyed, the user is not alerted, nor does the pointer cease attempting to access that memory location. A smart pointer solves these problems by automatically deleting itself once it no longer points to an object.
 
-## Exercise 2.24
+### Exercise 2.24
 > Why is the initialization of p legal but that of lp illegal?
 
 ```c++
@@ -239,7 +242,7 @@ long *lp = &i;
 A pointer to void can point to any type, so the intialization of p is valid.
 Pointer lp however must be a pointer to long, and i is an int.
 
-## Exercise 2.25
+### Exercise 2.25
 > Determine the types and values of each of the following variables.
 ```
 (a) int* ip, i, &r = i;   //ip is pointer to int, i is an int and r is a reference to i.
@@ -247,7 +250,7 @@ Pointer lp however must be a pointer to long, and i is an int.
 (c) int* ip, ip2;         //ip is a pointer to int, and ip2 is an int.
 ```
 
-## Exercise 2.26
+### Exercise 2.26
 > Which of the following are legal? For those that are illegal, explain why.
 ```c++
 const int buf;      // illegal. buf is a const and must therefore be initialized.
@@ -257,7 +260,7 @@ const int sz = cnt; // ok
 ++sz;               // illegal. sz is a const int and cannot therefore change value.
 ```
 
-## Exericse 2.27
+### Exericse 2.27
 > Which of the following initializations are legal? Explain why.
 ```
 (a) int i = -1, &r = 0;             //illegal. r cannot be a reference to an int literal
@@ -269,7 +272,7 @@ const int sz = cnt; // ok
 (g) const int i2 = i, &r = i;       //legal. i2 is a const int of value i, and r is a const reference to i.
 ```
 
-## Exercise 2.28
+### Exercise 2.28
 > Explain the following definitions. Identify any that are illegal.
 ```
 (a) int i, *const cp;               //illegal. cp is a const pointer to int and must be initialized
@@ -277,9 +280,9 @@ const int sz = cnt; // ok
 (c) const int ic, &r = ic;          //illegal. ic is a const int and must be initialized
 (d) const int *const p3;            //illegal. p3 is a const pointer to a const int and must be initialized
 (e) const int *p;                   //legal. p is pointer to a const int, and can be assigned to later.
-````
+```
 
-## Exercise 2.29
+### Exercise 2.29
  > Using the variables in the previous exercise, which of the following assignments are legal? Explain why.
 ```
  (a) i = ic;                        //legal. can assign to an int from a const int.
@@ -290,7 +293,7 @@ const int sz = cnt; // ok
  (f) ic = *p3;                      //illegal. cannot assign to a const int.
  ```
 
- ## Exercise 2.30
+ ### Exercise 2.30
  > For each of the following declarations indicate whether the object being declared has top-level or low-level const.
 
  ```c++
@@ -301,7 +304,7 @@ const int *p2 = &v2, *const p3 = &i, &r2 = v2;    //p2 is low-level const ptr,
                                                   //and r2 is a low-level const reference
 ```
 
-## Exercise 2.31
+### Exercise 2.31
 > Given the declarations in the previous exercise, determine whether the following assignments are legal. Explain how the top-level or low-level const applies in each case.
 ```
 r1 = v2;      //legal. top-level const of v2 ignored when assigning value.
@@ -311,7 +314,7 @@ p1 = p3;      //illegal. p3 has low-level const and p1 does not.
 p2 = p3;      //legal. Both p2 and p3 have low-level const, and the high.level const of p3 is ignored.
 ```
 
-## Exercise 2.32
+### Exercise 2.32
 > Is the following code legal or not? If not, how might you make it legal?
 ```c++
 int null = 0, *p = null;
@@ -334,20 +337,20 @@ int *p=NULL;  // I think 3 is regarded as preferable to 4
 int *p=0;
 ```
 
-## Exercise 2.33
+### Exercise 2.33
 > Using the variable definitions from this section, determine what happens in each of these assignments:
 
 see [2.34]
 
-## [Exercise 2.34](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-34.cpp)
+### [Exercise 2.34](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-34.cpp)
 
-## [Exercise 2.35](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-35.cpp)
+### [Exercise 2.35](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-35.cpp)
 
-## [Exercise 2.36](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-36.cpp)
+### [Exercise 2.36](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-36.cpp)
 
-## [Exercise 2.37](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-37.cpp)
+### [Exercise 2.37](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-37.cpp)
 
-## Exercise 2.38
+### Exercise 2.38
 > Describe the differences in type deduction between decltype and auto. Give an example of an expression where auto and decltype will deduce the same type and an example where they will deduce differing types.
 
 auto ignores top-level const and reference, whereas decltype does not.
@@ -363,7 +366,7 @@ auto s = r;           //s is an int
 decltype(r) b = m;    //b is a const int &
 ```
 
-## Exercise 2.39
+### Exercise 2.39
 > Compile the following program to see what happens when you forget the semicolon after a class definition. Remember the message for future reference.
 ```c++
 struct Foo { }
@@ -375,7 +378,7 @@ int main()
 ```
 Error message: expected a ';'
 
-## Exericse 2.40
+### Exericse 2.40
 > Write your own version of the Sales_data class.
 ```c++
 struct Sales_data
@@ -386,9 +389,9 @@ struct Sales_data
 };
 ```
 
-## [Exercise 2.41](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-41.cpp)
+### [Exercise 2.41](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-41.cpp)
 
-## [Exercise 2.42](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-42.cpp)
+### [Exercise 2.42](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-42.cpp)
 
 
 
