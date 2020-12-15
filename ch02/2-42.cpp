@@ -22,7 +22,7 @@ int main()
 
   if (item1.bookNo == item2.bookNo)
   {
-    unsigned total_revenue = item1.revenue + item2.revenue;
+    double total_revenue = item1.revenue + item2.revenue;
     unsigned total_units = item1.units_sold + item2.units_sold;
     if (total_units != 0)
     {

@@ -1,22 +1,58 @@
 #include <iostream>
 
-struct Sales_data
+using std::cout; using std::endl; using std::cin; using std::cerr;
+
+
+void print(int x, int y)
 {
+  if (x < y)
+  {
+    print(y, x);
+    return;
+  }
+
+  std::cout << std::endl;
+  for (int i = x; i > y; i--)
+    std::cout << i << " ";
+}
+
+
+struct Sales_data {
   std::string bookNo;
   unsigned units_sold = 0;
   double revenue = 0.0;
 };
 
+
 int main()
 {
+
+  //1.09
+  int x = 50, sum = 0;
+  while (x <= 100)
+    sum += x++;
+  cout << "The sum of the numbers from 50 to 100  inclusive is " << sum;
+
+  //1.10
+  int x=10;
+  
+  while (x>=0) std::cout << x-- << " ";
+
+  //1.11
+  int a = 100, b = 50, c = 50, d = 0;
+  print (a,b);
+  std::cout <<std::endl;
+  print(d, c);
+
   //ex1.20
   Sales_data item;
   double price;
   while(std::cin >>item.bookNo>>item.units_sold>>price)
   {
     item.revenue=item.units_sold*price;
-     std::cout << item.bookNo << " " << item.units_sold << " " << price << " " << item.revenue <<std::endl;
+     cout << item.bookNo << " " << item.units_sold << " " << price << " " << item.revenue <<endl;
   } 
+
   
   //ex1.21
   Sales_data item1, item2;
@@ -41,12 +77,12 @@ int main()
   //ex1.25
   Sales_data book;
   double unit_price;
-  if (std::cin >> book.bookNo>>book.units_sold>>unit_price)
+  if (cin >> book.bookNo>>book.units_sold>>unit_price)
   {
     book.revenue= unit_price * book.units_sold;
 
     Sales_data current;
-    while (std::cin >> current.bookNo>>current.units_sold>>unit_price)
+    while (cin >> current.bookNo>>current.units_sold>>unit_price)
     {
       current.revenue = unit_price * current.units_sold;
 
@@ -57,26 +93,27 @@ int main()
       }
       else
       {
-        std::cout <<book.bookNo <<" " <<book.units_sold << " " << book.revenue <<" ";
+        cout <<book.bookNo <<" " <<book.units_sold << " " << book.revenue <<" ";
 
-        if (book.units_sold!=0) std::cout <<book.revenue/book.units_sold << std::endl;
-        else std::cout <<"No units sold\n";
+        if (book.units_sold!=0) cout <<book.revenue/book.units_sold << endl;
+        else cout <<"No units sold\n";
 
         book = current;
       }  
     }
 
-     std::cout <<book.bookNo <<" " <<book.units_sold << " " << book.revenue <<" ";
+     cout <<book.bookNo <<" " <<book.units_sold << " " << book.revenue <<" ";
 
-     if (book.units_sold!=0) std::cout <<book.revenue/book.units_sold << std::endl;
-     else std::cout <<"No units sold\n";
+     if (book.units_sold!=0) cout <<book.revenue/book.units_sold << endl;
+     else cout <<"No units sold\n";
   }
 
   else 
   {
-    std::cerr << "There was an input error";
+    cerr << "There was an input error";
     return -1;
   }
 
-return 0; 
+
+  return 0;
 }

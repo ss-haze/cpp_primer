@@ -25,8 +25,7 @@ int main()
 
   else
   {
-    std::cerr << "No input occured\n"
-              << std::endl;
+    std::cerr << "No input occured\n";
     return -1;
   }
 
