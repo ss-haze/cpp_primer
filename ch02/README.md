@@ -7,7 +7,7 @@ A long is guaranteed to have a minimum size of 32 bits (value range is -2,147,48
 A long long is guaranteed to have a minimum size of 64 bits (value range is -9.22*10^18 to 9.22*10^18).
 
 A signed type has a bit dedicated to signal whether the number is positive or negative.
-An unsigned type uses the dedicated bit to double the largest possible number of its signed type, but cannot represent negative numbers.
+An unsigned type uses the dedicated bit to double the number of its signed type, but cannot represent negative numbers.
 
 A float has a minimum size of 6 significant digits.
 A double has a minimum size of 10 significant digits.
@@ -265,7 +265,7 @@ const int sz = cnt; // ok
 (c) const int i = -1, &r = 0;       //legal. i is const int of value -1, and r is const ref to an int literal
 (d) const int *const p3 = &i2;      //legal. p3 is  const pointer to a const int, which holds the address of i2.
 (e) const int *p1 = &i2;            //legal. p1 is a pointer to a const int, whic holds the address of i2.
-(f) const int &const r2;            //illegal. r2 is a reference, so must be intialized, and there is no top level const for a reference.
+(f) const int &const r2;            //illegal. r2 is &, so must be intialized; no top level const for &.
 (g) const int i2 = i, &r = i;       //legal. i2 is a const int of value i, and r is a const reference to i.
 ```
 
@@ -366,7 +366,8 @@ decltype(r) b = m;    //b is a const int &
 ## Exercise 2.39
 > Compile the following program to see what happens when you forget the semicolon after a class definition. Remember the message for future reference.
 ```c++
-struct Foo { } 
+struct Foo { }
+
 int main()
 {
     return 0;
