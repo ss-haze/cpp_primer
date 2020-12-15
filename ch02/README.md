@@ -220,6 +220,174 @@ int i=0;
 if (p) //...      This conditional returns true is p is pointing to an int. Returns false if p is not initialized or is a nullptr.
 if (*p) //...     This conditional returns true if *p is value other than 0.
 
+## Exercise 2.23
+> Given a pointer p, can you determine whether p points to a valid object? If so, how? If not, why not?
+
+No. If the object a pointer points to is destroyed, the user is not alerted, nor does the pointer cease attempting to access that memory location. A smart pointer solves these problems by automatically deleting itself once it no longer points to an object.
+
+## Exercise 2.24
+> Why is the initialization of p legal but that of lp illegal?
+
+```c++
+int i = 42;
+void *p = &i;
+long *lp = &i;
+```
+A pointer to void can point to any type, so the intialization of p is valid.
+Pointer lp however must be a pointer to long, and i is an int.
+
+## Exercise 2.25
+> Determine the types and values of each of the following variables.
+
+(a) int* ip, i, &r = i;   //ip is pointer to int, i is an int and r is a reference to i.
+(b) int i, *ip = 0;       //i is an int and ip is a null pointer.
+(c) int* ip, ip2;         //ip is a pointer to int, and ip2 is an int.
+
+## Exercise 2.26
+> Which of the following are legal? For those that are illegal, explain why.
+```c++
+const int buf;      // illegal. buf is a const and must therefore be initialized.
+int cnt = 0;        // ok
+const int sz = cnt; // ok
+++cnt;              // ok
+++sz;               // illegal. sz is a const int and cannot therefore change value.
+```
+
+## Exericse 2.27
+> Which of the following initializations are legal? Explain why.
+
+(a) int i = -1, &r = 0;             //illegal. r cannot be a reference to an int literal
+(b) int *const p2 = & i2;           //legal. p2 is a const pointer to an int.
+(c) const int i = -1, &r = 0;       //legal. i is const int of value -1, and r is const ref to an int literal
+(d) const int *const p3 = &i2;      //legal. p3 is  const pointer to a const int, which holds the address of i2.
+(e) const int *p1 = &i2;            //legal. p1 is a pointer to a const int, whic holds the address of i2.
+(f) const int &const r2;            //illegal. r2 is a reference, so must be intialized, and there is no top level const for a reference.
+(g) const int i2 = i, &r = i;       //legal. i2 is a const int of value i, and r is a const reference to i.
+
+## Exercise 2.28
+> Explain the following definitions. Identify any that are illegal.
+
+(a) int i, *const cp;               //illegal. cp is a const pointer to int and must be initialized
+(b) int *p1, *const p2;             //illegal. p2 is a const pointer to int and must be initialized
+(c) const int ic, &r = ic;          //illegal. ic is a const int and must be initialized
+(d) const int *const p3;            //illegal. p3 is a const pointer to a const int and must be initialized
+(e) const int *p;                   //legal. p is pointer to a const int, and can be assigned to later.
+
+## Exercise 2.29
+ > Using the variables in the previous exercise, which of the following assignments are legal? Explain why.
+
+ (a) i = ic;                        //legal. can assign to an int from a const int.
+ (b) p1 = p3;                       //illegal. p1 could be used to modify p3 if possible.
+ (c) p1 = &ic;                      //illegal. p1 could be used to modify value of ic if possible.
+ (d) p3 = &ic;                      //illegal. cannot assign to a const ptr.
+ (e) p2 = p1;                       //illegal. cannot assign to a const ptr.
+ (f) ic = *p3;                      //illegal. cannot assign to a const int.
+
+ ## Exercise 2.30
+ > For each of the following declarations indicate whether the object being declared has top-level or low-level const.
+
+ ```c++
+ const int v2 = 0; int v1 = v2;                       //v2 is top-level const int
+int *p1 = &v1, &r1 = v1;                              
+const int *p2 = &v2, *const p3 = &i, &r2 = v2;        //p2 is low-level const ptr, p3 is a top- and bottom.level const ptr, and r2 is a low-level const reference
+```
+
+## Exercise 2.31
+> Given the declarations in the previous exercise, determine whether the following assignments are legal. Explain how the top-level or low-level const applies in each case.
+
+r1 = v2;      //legal. top-level const of v2 ignored when assigning value.
+p1 = p2;      //illegal. p2 has low-level const and p1 does not.
+p2 = p1;      //legal. we can assign a ptr to int to const int ptr.
+p1 = p3;      //illegal. p3 has low-level const and p1 does not.
+p2 = p3;      //legal. Both p2 and p3 have low-level const, and the high.level const of p3 is ignored.
+
+## Exercise 2.32
+> Is the following code legal or not? If not, how might you make it legal?
+```c++
+int null = 0, *p = null;
+```
+This code is not valid. 'null' is probably being mixed up with 'NULL'. We have various options:
+```c++
+//1
+int null = 0, *p = &null;
+
+//2
+const int null = 0; int *p=null;
+
+//3
+int *p = nullptr;
+
+//4
+int *p=NULL;  // I think 3 is regarded as preferable to 4
+
+//5
+int *p=0;
+```
+
+## Exercise 2.33
+> Using the variable definitions from this section, determine what happens in each of these assignments:
+
+see [2.34]
+
+## [Exercise 2.34]
+
+## [Exercise 2.35]
+
+## Exercise 2.36
+> Describe the differences in type deduction between decltype and auto. Give an example of an expression where auto and decltype will deduce the same type and an example where they will deduce differing types.
+
+auto ignores top-level const and reference, whereas decltype does not.
+```
+//same type
+int x=5;
+auto y = x;           //y is an int
+decltype(x) z = y;    //z is an int
+
+//different type
+const int a=5, &r = a, m=10;
+auto s = r;           //s is an int
+decltype(r) b = m;    //b is a const int &
+```
+
+## Exercise 2.39
+> Compile the following program to see what happens when you forget the semicolon after a class definition. Remember the message for future reference.
+```c++
+struct Foo { } 
+int main()
+{
+    return 0;
+}
+```
+Error message: expected a ';'
+
+## Exericse 2.40
+> Write your own version of the Sales_data class.
+```c++
+struct Sales_data
+{
+  std::string bookNo;
+  unsigned units_sold = 0;
+  double revenue = 0.0;
+};
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
