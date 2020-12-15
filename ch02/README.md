@@ -329,11 +329,15 @@ int *p=0;
 
 see [2.34]
 
-## [Exercise 2.34]
+## [Exercise 2.34](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-34.cpp)
 
-## [Exercise 2.35]
+## [Exercise 2.35](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-35.cpp)
 
-## Exercise 2.36
+## [Exercise 2.36](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-36.cpp)
+
+## [Exercise 2.37](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-37.cpp)
+
+## Exercise 2.38
 > Describe the differences in type deduction between decltype and auto. Give an example of an expression where auto and decltype will deduce the same type and an example where they will deduce differing types.
 
 auto ignores top-level const and reference, whereas decltype does not.
@@ -370,6 +374,10 @@ struct Sales_data
   double revenue = 0.0;
 };
 ```
+
+## [Exercise 2.41](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-41.cpp)
+
+## [Exercise 2.42](https://github.com/ss-haze/cpp_primer/blob/main/ch02/2-42.cpp)
 
 
 
