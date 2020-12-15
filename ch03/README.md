@@ -1,8 +1,8 @@
 ## [Exercise 3.1](https://github.com/ss-haze/cpp_primer/blob/main/ch03/3-01.cpp)
 
-## [Exercise 3.2](https://github.com/ss-haze/cpp_primer/blob/main/ch03/3-02.cpp)
+### [Exercise 3.2](https://github.com/ss-haze/cpp_primer/blob/main/ch03/3-02.cpp)
 
-## [Exercise 3.3]
+### [Exercise 3.3]
 > Explain how whitespace characters are handled in the string input operator and in the getline function.
 
 The string input operator sees whitespace (i.e. spaces, newlines and tabs) as limiter, so strings contain no white space characters.
