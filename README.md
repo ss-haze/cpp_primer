@@ -1,6 +1,6 @@
 # C++ Primer 5th Edition Answers
 
-These answers were compiled using the g++ compiler and with Visual Studio Community 2019.
+These answers were compiled with the g++ compiler and with Visual Studio Community 2019.
 
 ### Contents
 
