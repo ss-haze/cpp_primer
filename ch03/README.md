@@ -55,9 +55,9 @@ vector<int> v1;                   //v1 is empty
 vector<int> v2(10);               //v2 has 10 elements set to 0 
 vector<int> v3(10, 42);           //v3 has 10 elements set to 42
 vector<int> v4{ 10 };             //v4 has 1 element set to 10     
-vector<int> v5{ 10, 42 };         //v has 2 elements of value 10 and 42
+vector<int> v5{ 10, 42 };         //v5 has 2 elements of value 10 and 42
 vector<string> v6{ 10 };          //v6 has 10 empty string elements
-vector<string> v7{ 10, "hi" };    // v7 has 10 elements set to "hi"   
+vector<string> v7{ 10, "hi" };    //v7 has 10 elements set to "hi"   
 ```
 
 ### [Exercise 3.14](https://github.com/ss-haze/cpp_primer/blob/main/ch03/3-14.cpp)
@@ -150,9 +150,9 @@ for (size_t ix = 1; ix <= array_size; ++ix)
 ```
 ix should start at 0, not 1, and the test condition should be: ix < array_size.
 
-### Exercise 3.31(https://github.com/ss-haze/cpp_primer/blob/main/ch03/3-31.cpp)
+### [Exercise 3.31](https://github.com/ss-haze/cpp_primer/blob/main/ch03/3-31.cpp)
 
-### Exercise 3.32(https://github.com/ss-haze/cpp_primer/blob/main/ch03/3-32.cpp)
+### [Exercise 3.32](https://github.com/ss-haze/cpp_primer/blob/main/ch03/3-32.cpp)
 
 ### Exercise 3.33
 > What would happen if we did not initialize the scores array in the program on page 116?
@@ -198,6 +198,10 @@ A pointer holds the address of an object. If we add two pointers, the result is 
 ### [Exercise 3.42](https://github.com/ss-haze/cpp_primer/blob/main/ch03/3-42.cpp)
 
 ### [Exercise 3.43](https://github.com/ss-haze/cpp_primer/blob/main/ch03/3-43.cpp)
+
+### [Exercise 3.44](https://github.com/ss-haze/cpp_primer/blob/main/ch03/3-44.cpp)
+
+### [Exercise 3.45](https://github.com/ss-haze/cpp_primer/blob/main/ch03/3-45.cpp)
 
 
 
