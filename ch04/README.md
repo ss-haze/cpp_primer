@@ -154,10 +154,17 @@ int i; double d;
 
 ### Exercise 4.14
 > Explain what happens in each of the if tests.
+```c++
+if (42=i)
+//error: we cannot assign to an int literal
 
-if (42=i)         //error: we cannot assign to an int literal
+if (i = 42)
+//this always evaluates to true. Better: 
+if (i==42)
+```
 
-if (i = 42)       //this will always evaluate to true. What was intended is if (i==42).
+
+
 
 
 
