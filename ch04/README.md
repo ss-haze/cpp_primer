@@ -97,8 +97,11 @@ st += 1;
 > Explain when operands are evaluated in the logical AND, logical OR, and equality operators.
 
 The logical AND and OR operators use short-ciruiting:
+
 (a) The left hand operand is first evaluated
+
 (b) For AND, the right hand operand is evaluated iff (a) evaluates to true
+
 (c) For OR, the right hand operand is evaluated iff (a) evaluates to false
 
 The equality operator evaluates both the right and left hand operand and then compares them. 
