@@ -5,15 +5,19 @@
 
 ### Exercise 4.2
 > Using Table 4.12 (p. 166), parenthesize the following expressions to indicate the order in which the operands are grouped:
-```
-(a) * vec.begin()         
+
+(a) * vec.begin()  
+
 The order is member selector -> member function -> dereference
+
 i.e. *( (vec.begin) () )
 
-(b) * vec.begin() + 1     
+(b) * vec.begin() + 1   
+
 The order is member selector -> member function -> dereference -> addition
+
 i,e. (* (vec.begin) () ) ) + 1
-```
+
 
 ### Exercise 4.3
 > Order of evaluation for most of the binary operators is left undefined to give the compiler opportunities for optimization. This strategy presents a trade-off between efficient code generation and potential pitfalls in the use of the language by the programmer. Do you consider that an acceptable trade-off? Why or why not?
@@ -22,14 +26,17 @@ I think it is acceptable. One can always explicitly force evaluation order throu
 
 ### Exercise 4.4
 > Parenthesize the following expression to show how it is evaluated. Test your answer by compiling the expression (without parentheses) and printing its result.
-```
+
 12 / 3 * 4 + 5 * 15 + 24 % 4 / 2
 
 = ((12/3)*4) + (5*15) + (24%(4/2) 
+
 = (4*4) + 75 + (24%2)
+
 = 16 + 75 + 0 
+
 = 91
-```
+
 
 ## Exercise 4.5
 > Determine the result of the following expressions.
@@ -77,7 +84,7 @@ else cout << "x is even";
 Overflow occurs when the result of an expression is stored in a type for which the result is outside the type's range.
 
 e.g.
-```
+```c++
 int x;
 
 x= 10 / 0;
