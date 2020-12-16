@@ -96,7 +96,7 @@ st += 1;
 ### Exercise 4.8
 > Explain when operands are evaluated in the logical AND, logical OR, and equality operators.
 
-The logical AND and OR operators use short-ciruiting:
+The logical AND and OR operators use short-circuiting:
 
 (a) The left hand operand is first evaluated
 
@@ -163,9 +163,20 @@ if (i = 42)
 if (i==42)
 ```
 
+### Exercise 4.15
+> The following assignment is illegal. Why? How would you correct it?
+```c++
+double dval; int ival; int *pi;
+dval = ival = pi = 0;
 
+// The assignment operator is right associative. So the first assignment is pi = 0.
+// The next assignment is ival = pi, but ival is an int and pi is an int *, so no assignment is possible.
 
-
+//A possible correction:
+double dval; int ival; int *pi;
+dval = ival = 0;
+pi = 0;
+```
 
 
 
