@@ -178,6 +178,27 @@ dval = ival = 0;
 pi = 0;
 ```
 
+### Exercise 4.16
+> Although the following are legal, they probably do not behave as the programmer expects. Why? Rewrite the expressions as you think they should be.
+```
+(a) if (p = getPtr() != 0)
+
+This first evaluates getPtr() != 0 and then assigns this result to p:
+p = (getPtr() != 0)  
+
+whereas we first want to assign getPtr() to p and then test whether p != 0:
+(p = getPtr())!=0
+
+so the condition should be rewritten as:
+if ((p=getPtr()) != 0)
+
+(b) if (i = 1024)
+This always evaluates to true. Better:
+if (i==1024)
+```
+
+
+
 
 
 
