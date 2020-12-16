@@ -100,16 +100,20 @@ The order of evaluation is compiler determined.
 
 ### Exercise 4.9
 > Explain the behavior of the condition in the following if:
-```
+```c++
 const char *cp = "Hello World";
 if (cp && *cp)
-
-(a) The left hand operand (cp) is first evaluated.
-(b) It is not a nullptr, therefore this operand evaluates to true.
-(c) The right hand operand (*cp) is then evaluated.
-(d) *cp does not equal zero, therefore this operand evaluated to true.
-(e) The condidtion expression evaluates to true.
 ```
+(a) The left hand operand (cp) is first evaluated.
+
+(b) It is not a nullptr, therefore this operand evaluates to true.
+
+(c) The right hand operand (*cp) is then evaluated.
+
+(d) *cp does not equal zero, therefore this operand evaluated to true.
+
+(e) The condidtion expression evaluates to true.
+
 
 
 
