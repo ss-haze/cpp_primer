@@ -1,8 +1,6 @@
 # C++ Primer 5th Edition Answers
 
-These answers were compiled using the g++ compiler and VS Code on Windows 10.
-
-All corrections and comments are gratefully accepted!
+These answers were compiled using the g++ compiler and with Visual Studio Community 2019.
 
 ### Contents
 
