@@ -34,7 +34,7 @@ I think it is acceptable. One can always explicitly force evaluation order throu
 = 91
 
 
-## Exercise 4.5
+### Exercise 4.5
 > Determine the result of the following expressions.
 ```
 (a) -30 * 3 + 21 / 5
@@ -139,9 +139,30 @@ while (cin >> input && input!=42){/*.....*/}
 ### Exercise 4.12
 > Assuming i, j, and k are all ints, explain what i != j < k means.
 
-The right hand operand (j>k) evaluates to a bool, which evaluates to either TRUE or FALSE.
+The right hand operand (j>k) evaluates to a bool, which evaluates to either true of false.
 
-The expression is either i != TRUE, or i != FALSE. Since i is an int, the expression evaluates to either i != 1, or i!= 0.
+The expression is either i != true, or i != false. Since i is an int, the expression evaluates to either i != 1, or i != 0.
+
+### Exercise 4.13
+> What are the values of i and d after each assignment?
+
+int i; double d;
+
+(a) d = i = 3.5;      // d=3.0, i=3
+
+(b) i = d = 3.5;      // d=3.5, i=3
+
+### Exercise 4.14
+> Explain what happens in each of the if tests.
+
+if (42=i)     //error: we cannot assign to an int literal
+if (i = 42)   //this will always evaluate to true. What was intended is if (i==42).
+
+
+
+
+
+
 
 
 
