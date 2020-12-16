@@ -159,7 +159,7 @@ if (42=i)
 //error: we cannot assign to an int literal
 
 if (i = 42)
-//this always evaluates to true. Better: 
+//this always evaluates to true, since we testing the assigning of a value to an int. Better: 
 if (i==42)
 ```
 
