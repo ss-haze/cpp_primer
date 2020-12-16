@@ -7,15 +7,11 @@
 > Using Table 4.12 (p. 166), parenthesize the following expressions to indicate the order in which the operands are grouped:
 
 (a) * vec.begin()  
-
 The order is member selector -> member function -> dereference
-
 i.e. *( (vec.begin) () )
 
 (b) * vec.begin() + 1   
-
 The order is member selector -> member function -> dereference -> addition
-
 i,e. (* (vec.begin) () ) ) + 1
 
 
@@ -101,15 +97,11 @@ st += 1;
 > Explain when operands are evaluated in the logical AND, logical OR, and equality operators.
 
 The logical AND and OR operators use short-ciruiting:
-
 (a) The left hand operand is first evaluated
-
 (b) For AND, the right hand operand is evaluated iff (a) evaluates to true
-
-    For OR, the right hand operand is evaluated iff (a) evaluates to false
+(c) For OR, the right hand operand is evaluated iff (a) evaluates to false
 
 The equality operator evaluates both the right and left hand operand and then compares them. 
-
 The order of evaluation is compiler determined.
 
 
