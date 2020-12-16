@@ -66,16 +66,20 @@ if (x%2) cout <<"x is odd";
 else cout << "x is even";
 
 // or, using bitwise operator:
+
 if (x & 01) cout << "x is odd";
 else cout << "x is even";
 ```
 
 ### Exercise 4.7
 > What does overflow mean? Show three expressions that will overflow.
-```
+
 Overflow occurs when the result of an expression is stored in a type for which the result is outside the type's range.
+
 e.g.
+```
 int x;
+
 x= 10 / 0;
 
 unsigned int z;
@@ -88,15 +92,19 @@ st += 1;
 
 ### Exercise 4.8
 > Explain when operands are evaluated in the logical AND, logical OR, and equality operators.
-```
+
 The logical AND and OR operators use short-ciruiting:
+
 (a) The left hand operand is first evaluated
+
 (b) For AND, the right hand operand is evaluated iff (a) evaluates to true
+
     For OR, the right hand operand is evaluated iff (a) evaluates to false
 
 The equality operator evaluates both the right and left hand operand and then compares them. 
+
 The order of evaluation is compiler determined.
-```
+
 
 ### Exercise 4.9
 > Explain the behavior of the condition in the following if:
