@@ -43,7 +43,7 @@ I think it is acceptable. One can always explicitly force evaluation order throu
 = -30 + ((3*21)/5)
 = -30 + (63/5)
 = -30 + 12
-=-18
+= -18
 
 (c) 30 / 3 * 21 % 5
 = (30/3)*21) % 5
@@ -89,7 +89,7 @@ st += 1;
 ### Exercise 4.8
 > Explain when operands are evaluated in the logical AND, logical OR, and equality operators.
 ```
-The logical AND and OR operators use short.ciruiting:
+The logical AND and OR operators use short-ciruiting:
 (a) The left hand operand is first evaluated
 (b) For AND, the right hand operand is evaluated iff (a) evaluates to true
     For OR, the right hand operand is evaluated iff (a) evaluates to false
@@ -97,5 +97,19 @@ The logical AND and OR operators use short.ciruiting:
 The equality operator evaluates both the right and left hand operand and then compares them. 
 The order of evaluation is compiler determined.
 ```
+
+### Exercise 4.9
+> Explain the behavior of the condition in the following if:
+```
+const char *cp = "Hello World";
+if (cp && *cp)
+
+(a) The left hand operand (cp) is first evaluated.
+(b) It is not a nullptr, therefore this operand evaluates to true.
+(c) The right hand operand (*cp) is then evaluated.
+(d) *cp does not equal zero, therefore this operand evaluated to true.
+(e) The condidtion expression evaluates to true.
+```
+
 
 
