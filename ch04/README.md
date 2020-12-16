@@ -120,10 +120,28 @@ if (cp && *cp)
 
 (c) The right hand operand (*cp) is then evaluated.
 
-(d) *cp does not equal zero, therefore this operand evaluated to true.
+(d) *cp does not equal zero, therefore this operand evaluates to true.
 
-(e) The condidtion expression evaluates to true.
+(e) The conditional statment evaluates to true.
 
+### Exercise 4.10
+> Write the condition for a while loop that would read ints from the standard input and stop when the value read is equal to 42.
+```c++
+while (cin >> input && input!=42){/*.....*/}
+```
+
+### Exercise 4.11
+> Write an expression that tests four values, a, b, c, and d, and ensures that a is greater than b, which is greater than c, which is greater than d.
+```c++
+ if (a>b && b>c && c>d) {/*......*/}
+```
+
+### Exercise 4.12
+> Assuming i, j, and k are all ints, explain what i != j < k means.
+
+The right hand operand (j>k) evaluates to a bool, which evaluates to either TRUE or FALSE.
+
+The expression is either i != TRUE, or i != FALSE. Since i is an int, the expression evaluates to either i != 1, or i!= 0.
 
 
 
