@@ -8,7 +8,7 @@ A null statement consists of a single semi-colon. It is used as a placeholder fo
 
 A block is a sequence of code consisting of any number of statements, which are enclosed in curly braces. We use a block to group satements that perform a specified task.
 
-### [Exercise 5.3]((https://github.com/ss-haze/cpp_primer/blob/main/ch05/5-03.cpp)
+### [Exercise 5.3](https://github.com/ss-haze/cpp_primer/blob/main/ch05/5-03.cpp)
 
 ### Exercise 5.4
 > Explain each of the following examples, and correct any problems you detect.
@@ -50,6 +50,7 @@ if (!status){....}
 (d) if (ival = 0)
     ival = get_value();
     ```
+    
     ```c++
 (a) if (ival1 != ival2) ival1 = ival2;    //missing semi-colon after ival2
  else ival = ival = 0;
