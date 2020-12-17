@@ -204,6 +204,24 @@ The prefix operator increments the operand by 1 and returns the operand as an lv
 
 The postfix operator increments the operand by 1 and returns a copy of the operand's orginal value as an rvalue.
 
+### Exericse 4.18
+> What would happen if the while loop on page 148 that prints the elements from a vector used the prefix increment operator?
+
+The loop will not print the first element of the vector. It will also attempt to dereference one past the last element of the vector. The loop will also continue to dereference memory locations until a negative value is encountered.
+
+### Exercise 4.19
+> Given that ptr points to an int, that vec is a vector, and that ival is an int, explain the behavior of each of these expressions. Which, if any, are likely to be incorrect? Why? How might each be corrected?
+```
+(a) ptr != 0 && *ptr++
+We first check ptr is not nullptr, then increase ptr by one, and then dereference the previous value of ptr. Possible problem: ptr may now point to an undefined memory location.
+
+(b) ival++ && ival
+We first increment the value of ival and then test the unincremented value. If this value is not zero, we then test for the incremented value.
+
+(c) vec[ival++] <= vec [ival]
+The order of evalution is undefined and can produce inconsistent results. Assuming ival is 5, we could be testing either for vec[5] <= vec [6], or for vec[5] <= vec[5]. a possible solution is: vec[ival] <= vec [ival + 1].
+```
+
 
 
 
