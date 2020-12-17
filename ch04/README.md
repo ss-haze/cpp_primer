@@ -211,20 +211,243 @@ The loop will not print the first element of the vector. It will also attempt to
 
 ### Exercise 4.19
 > Given that ptr points to an int, that vec is a vector, and that ival is an int, explain the behavior of each of these expressions. Which, if any, are likely to be incorrect? Why? How might each be corrected?
-```
+```c++
 (a) ptr != 0 && *ptr++
-We first check ptr is not nullptr, then increase ptr by one, and then dereference the previous value of ptr. 
-Possible problem: ptr may now point to an undefined memory location.
+//We first check ptr is not nullptr, then increase ptr by one, and then dereference the previous value of ptr. 
+//Possible problem: ptr may now point to an undefined memory location.
 
-(b) ival++ && ival
-We first increment the value of ival and then test the unincremented value. 
-If this value is not zero, we then test for the incremented value.
+(b)ival++ && ival
+//We first increment the value of ival and then test the unincremented value. 
+//If this value is not zero, we then test for the incremented value.
 
 (c) vec[ival++] <= vec [ival]
-The order of evalution is undefined and can produce inconsistent results. 
-Assuming ival is 5, we could be testing either for vec[5] <= vec [6], or for vec[5] <= vec[5]. 
-A possible solution is: vec[ival] <= vec [ival + 1].
+//The order of evalution is undefined and can produce inconsistent results. 
+//Assuming ival is 5, we could be testing either for vec[5] <= vec [6], or for vec[5] <= vec[5]. 
+//A possible solution is: 
+vec[ival] <= vec [ival + 1].
 ```
+
+### Exercise 4.20
+> Assuming that iter is a vector<string>::iterator, indicate which, if any, of the following expressions are legal. Explain the behaviour of the legal expressions and why those that aren’t legal are in error.
+```c++
+(a) *iter++;  
+// Legal. We increment iter, and then dereference the unincremented value of iter.
+
+(b) (*iter)++
+// Illegal. We cannot increment a string.
+
+(c) *iter.empty()
+// Illegal. We are attempting to call the empty() method on iter, then dereference the result.
+
+(d) iter->empty()
+// Legal. We dereference iter, and then call the empty() method on the string.
+
+(e) ++*iter
+// Illegal. We are attempting to increment a string.
+
+(f) iter++->empty()
+// Legal. We increment iter, then dereference the original iter, then call the empty method on the string
+```
+
+### [Exercise 4.21](https://github.com/ss-haze/cpp_primer/blob/main/ch04/4-21.cpp)
+
+### [Exericse 4.22](https://github.com/ss-haze/cpp_primer/blob/main/ch04/4-22.cpp)
+
+### Exercise 4.23
+> The following expression fails to compile due to operator precedence. Using Table 4.12 (p. 166), explain why it fails. How would you fix it?
+```c++
+string s = "word";
+string pl = s + s[s.size() - 1] == 's' ? "" : "s" ;
+```
+The expression fails because the conditional and relational operators have lower precedence than the addition operator.
+
+We are adding string s to its last char, then using the relational operator to assess whether the resulting string is the same as char 's'. This operation fails because the relational operator cannot take operands of char and string.
+
+Fix:
+```c++
+string pl = s + (s[s.size() - 1] == 's' ? "" : "s") ;
+```
+
+### Exercise 4.24
+> Our program that distinguished between high pass, pass, and fail depended on the fact that the conditional operator is right associative. Describe how that operator would be evaluated if the operator were left associative.
+
+Were the operator were left associative
+```
+finalgrade = grade > 90 ? "high pass" : grade < 60  ? "fail" : "pass";
+```
+would be equivalent to
+```
+finalgrade = ( grade > 90 ? "high pass" : grade < 60 ) ? "fail" : "pass";
+```
+if grade > 90, we return "high pass", which is not an empty string, so the second ternary operator returns "fail". 
+
+### Exercise 4.25
+> What is the value of ~'q' << 6 on a machine with 32-bit ints and 8 bit chars, that uses Latin-1 character set in which 'q' has the bit pattern 01110001?
+'q' = 01110001
+
+when converted to 32-bit int we get 00000000 00000000 00000000 01110001
+
+~q = 11111111 11111111 11111111 10001110
+
+~q<<6 is therefore 11111111 11111111 11100011 10000000
+
+which is in 2-complement notation. Decimal value is -7296
+
+### Exercise 4.26
+> In our grading example in this section, what would happen if we used unsigned int as the type for quiz1?
+
+The minimum size of an int is 16 bits, and the minimum size of long is 32 bits. The teacher has 30 students, and therefore needs 30 bits for all results, and those compilers that have int set to 16 bits would not be able to contain all the results.
+
+### Exercise 4.27
+> What is the result of each of these expressions?
+```c++
+unsigned long ul1= 3, ul2 = 7;
+(a) ul1 & ul2     //3
+(b) ul1 | ul2     //7
+(c) ul1 && ul2    //true
+(d) ul1 || ul2    //true
+```
+
+### [Exercise 4.28](https://github.com/ss-haze/cpp_primer/blob/main/ch04/4-28.cpp)
+
+### Exercise 4.29
+> Predict the output of the following code and explain your reasoning. Now run the program. Is the output what you expected? If not, figure out why.
+```c++
+int x[10];   
+int *p = x;
+cout << sizeof(x)/sizeof(*x) << endl;
+cout << sizeof(p)/sizeof(*p) << endl;
+```
+The first output is 10, the number of elements in the array.
+The second gives the size of a pointer divided by the size of an int
+
+### Exercise 4.30
+> Using Table 4.12 (p. 166), parenthesize the following expressions to match the default evaluation.
+```c++
+sizeof x + y      // (sizeof (x)) + y 
+sizeof p->mem[i]  // sizeof (p->mem[i])
+sizeof a < b      // (sizeof (a)) < b
+sizeof f()        // sizeof (f()) i.e. size of return type of function.
+```
+
+### [Exercise 4.31](https://github.com/ss-haze/cpp_primer/blob/main/ch04/4-31.cpp)
+
+### Exercise 4.32
+> Explain the following loop
+```c++
+constexpr int size = 5;
+int ia[size] = { 1, 2, 3, 4, 5 };
+for (int* ptr = ia, ix = 0;
+     ix != size && ptr != ia + size;
+     ++ix, ++ptr) { /* ... */
+}
+```
+ix and ia both serve as a test for the termination for the loop.
+
+ix terminates the loop when ix equals the size of the array, and the ptr terminates the 
+loop when the pointer points to one past the last value of the array.
+
+### Exercise 4.33
+> Using Table 4.12 (p. 166), explain what the following expression does:
+```c++
+someValue ? ++x, ++y : --x, --y
+```
+The comma operator takes precedence over the ternary operator, so the above is equivalent to:
+```
+(someValue ? ++x, ++y : --x), --y
+```
+which says that:
+
+(a) if someValue is 0, then increment x and y, then decrement y
+
+(b) if someValue is not 0, decrement x, and then decrement y
+
+### Exercise 4.34
+> Given the variable definitions in this section, explain what conversions take place in the following expressions (remember that you may need to consider the associativity of the operators):
+```c++
+ (a) if (fval)              //conversion to bool
+ (b) dval = fval + ival;    //conversion to float, and then to double
+ (c) dval + ival * cval;    //conversion to int, and then conversion to double
+```
+
+### Exercise 4.35
+> Given the following definitions, identify the implicit type conversions, if any, taking place:
+```c++
+char cval; 
+int ival; 
+unsigned int ui; 
+float fval; 
+double dval;
+
+(a) cval = 'a' + 3; 
+// a is promoted to an int
+// it is added to 3
+// the result is converted to char.
+
+(b) fval = ui - ival * 1.0; 
+// ival is converted to double
+// it is multiplied by 1.0.
+// The result is converted to unsigned int
+// and subtracted from ui. 
+// This result is converted to float and assigned to fval.
+
+dval = ui * fval; 
+// ui is promoted to float
+// multiplied by fval
+// the result is converted to double and assigned to dcal
+
+cval = ival + fval + dval;  
+// ival promoted to float
+// added to fval
+// that resul is converted to double
+// addedto dval
+// that result is converted to char and assigned to cval
+```
+
+### Exercise 4.36
+> Assuming i is an int and d is a double write the expression i *= d so that it does integral, rather than floating-point, multiplication.
+```c++
+i *= static_cast<int>(d)
+```
+
+### Exercise 4.37
+Rewrite each of the following old-style casts to use a named cast:
+```c++
+int i; 
+double d; 
+const string *ps; 
+char *pc; 
+void *pv;
+
+(a) pv=(void*)ps; 
+//pv=static_cast<void*>(const_cast<string*>(ps));
+
+(b) i=int(*pc);  
+//i=static_cast<int>(*pc);
+
+(c) pv=&d;       
+//pv=static_cast<void*>(&d);
+
+(d) pc=(char*)pv;
+ //pc=static_cast<char*>(pv);
+```
+
+### Exercise 4.38
+> Explain the following expression:
+```c++
+double slope = static_cast<double>(j/i);
+```
+The result of j/i is cast to double and then assigned to slope.
+
+
+
+
+
+
+
+
+
+
 
 
 
