@@ -197,6 +197,16 @@ This always evaluates to true. Better:
 if (i==1024)
 ```
 
+### Exercise 4.17
+> Explain the difference between prefix and postfix increment.
+
+The prefix operator increments the operand by 1 and returns the operand as an lvalue.
+
+The postfix operator increments the operand by 1 and returns a copy of the operand's orginal value as an rvalue.
+
+
+
+
 
 
 
