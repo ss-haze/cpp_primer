@@ -49,9 +49,9 @@ if (!status){....}
 
 (d) if (ival = 0)
     ival = get_value();
-    ```
-    Corrections:      
-    ```c++
+```
+
+```c++
 (a) if (ival1 != ival2) ival1 = ival2;    //missing semi-colon after ival2
  else ival = ival = 0;
 
@@ -67,4 +67,4 @@ if (!status){....}
 
 (d) if (ival == 0)              //relational - not assignment - operator required, 
     ival = get_value();
-    ```
+```
