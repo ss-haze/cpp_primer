@@ -60,11 +60,10 @@ if (!status){....}
        occurs = 1;
     }                  
    
-
-(c) int ival;                             //need to declare ival outside of if statement
+(c) int ival;                            //need to declare ival outside of if statement
     if (ival = get_value()) cout << "ival = " << ival << endl;
     if (!ival) cout << "ival = 0\n";
 
-(d) if (ival == 0)              //relational - not assignment - operator required, 
+(d) if (ival == 0)                      //relational - not assignment - operator required, 
     ival = get_value();
 ```
