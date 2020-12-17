@@ -40,8 +40,7 @@ int main()
   }
 
   string s = "word";
-	s + s[s.size() - 1] == 's';
-
+  s + s[s.size() - 1] == 's';
 
   return 0;
 }
