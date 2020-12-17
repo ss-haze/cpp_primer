@@ -213,13 +213,18 @@ The loop will not print the first element of the vector. It will also attempt to
 > Given that ptr points to an int, that vec is a vector, and that ival is an int, explain the behavior of each of these expressions. Which, if any, are likely to be incorrect? Why? How might each be corrected?
 ```
 (a) ptr != 0 && *ptr++
-We first check ptr is not nullptr, then increase ptr by one, and then dereference the previous value of ptr. Possible problem: ptr may now point to an undefined memory location.
+We first check ptr is not nullptr, then increase ptr by one, and then dereference the previous value of ptr. 
+Possible problem: ptr may now point to an undefined memory location.
 
 (b) ival++ && ival
-We first increment the value of ival and then test the unincremented value. If this value is not zero, we then test for the incremented value.
+We first increment the value of ival and then test the unincremented value. 
+If this value is not zero, we then test for the incremented value.
 
 (c) vec[ival++] <= vec [ival]
-The order of evalution is undefined and can produce inconsistent results. Assuming ival is 5, we could be testing either for vec[5] <= vec [6], or for vec[5] <= vec[5]. a possible solution is: vec[ival] <= vec [ival + 1].
+The order of evalution is undefined and can produce inconsistent results. 
+Assuming ival is 5, we could be testing either for vec[5] <= vec [6], 
+or for vec[5] <= vec[5]. A possible solution is: 
+vec[ival] <= vec [ival + 1].
 ```
 
 
