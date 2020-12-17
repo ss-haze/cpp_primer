@@ -222,9 +222,8 @@ If this value is not zero, we then test for the incremented value.
 
 (c) vec[ival++] <= vec [ival]
 The order of evalution is undefined and can produce inconsistent results. 
-Assuming ival is 5, we could be testing either for vec[5] <= vec [6], 
-or for vec[5] <= vec[5]. A possible solution is: 
-vec[ival] <= vec [ival + 1].
+Assuming ival is 5, we could be testing either for vec[5] <= vec [6], or for vec[5] <= vec[5]. 
+A possible solution is: vec[ival] <= vec [ival + 1].
 ```
 
 
