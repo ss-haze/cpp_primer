@@ -68,6 +68,22 @@ return 0;
 
 ### Exercise 6.9   [fact.cc](https://github.com/ss-haze/cpp_primer/blob/main/ch06/fact.cc)   [factMain.cc](https://github.com/ss-haze/cpp_primer/blob/main/ch06/factMain.cc)
 
+### [Exercise 6.10](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-10.cpp)
+
+### [Exercise 6.11](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-11.cpp)
+
+### [Exercise 6.12](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-12.cpp)
+
+### Exercise 6.13
+> Assuming T is the name of a type, explain the difference between a function declared as void f(T) and void f(T&).
+
+void f(T) passes an argument by value. Argument is unchanged by operations on the parameter within the function.
+
+void f(&T) passes an argument by reference. Parameter is an alias of the argument. 
+Operations on the parameter within the function body are also operations on the argument.
+
+
+
 
 
 
