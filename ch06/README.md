@@ -25,11 +25,11 @@ Arguments are values supplied in a function call that are used to initialize a f
 //missing braces for function body
 ```
 
-### Exercise 6.3(https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-03.cpp)
+### [Exercise 6.3](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-03.cpp)
 
-### Exercise 6.4(https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-04.cpp)
+### [Exercise 6.4](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-04.cpp)
 
-### Exercise 6.5(https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-05.cpp)
+### [Exercise 6.5](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-05.cpp)
 
 ### Exercise 6.6
 > Explain the differences between a parameter, a local variable, and  a local static variable. Give an example of a function in which each might be useful.
@@ -66,7 +66,7 @@ return 0;
 
 ### [Exercise 6.8](https://github.com/ss-haze/cpp_primer/blob/main/ch06/Chapter6.h)
 
-### Exercise 6.9 [fact.cc](https://github.com/ss-haze/cpp_primer/blob/main/ch06/fact.cc) || [factMain.cc](https://github.com/ss-haze/cpp_primer/blob/main/ch06/factMain.cc)
+### Exercise 6.9   [fact.cc](https://github.com/ss-haze/cpp_primer/blob/main/ch06/fact.cc)   [factMain.cc](https://github.com/ss-haze/cpp_primer/blob/main/ch06/factMain.cc)
 
 
 
