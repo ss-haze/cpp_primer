@@ -158,6 +158,10 @@ Refrence parameters should be references to const when the function makes no cha
 
 A plain refrence parameter precludes the use of a literal or a const object as an argument.
 
+### [Exercise 6.21](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-21.cpp)
+
+
+
 
 
 
