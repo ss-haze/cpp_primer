@@ -11,8 +11,7 @@ void print(int x, const int *b, const int *e)
 {
   cout << "i = " << x << endl;
   cout << "j = ";
-  for (; b != e; cout << *b++ << " ")
-    ;
+  for (; b != e; cout << *b++ << " ");
 }
 
 void print(int x, const int arr[], size_t size)
