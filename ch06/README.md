@@ -160,6 +160,7 @@ A plain refrence parameter precludes the use of a literal or a const object as a
 
 ### [Exercise 6.21](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-21.cpp)
 
+### [Exercise 6.22](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-22.cpp)
 
 
 
