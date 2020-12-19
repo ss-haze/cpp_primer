@@ -2,24 +2,26 @@
 
 using std::cout;
 
-int main () {
-  int val=0, sum=0;
+int main()
+{
+  int val = 0, sum = 0;
 
-  //original 
-  while (val<=10)
+  //original
+  while (val <= 10)
   {
-    sum+=val;
+    sum += val;
     ++val;
   }
-  cout <<sum<<std::endl;
+  cout << sum << std::endl;
 
   //rewrite
-  val=0; sum=0;
-  while (val<=10) sum+=val, ++val;
+  val = 0;
+  sum = 0;
+  while (val <= 10)
+    sum += val, ++val;
   cout << sum;
 
   return 0;
 
   //The comma operator makes te code less readable.
-
 }

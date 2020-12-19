@@ -82,6 +82,90 @@ void f(T) passes an argument by value. Argument is unchanged by operations on th
 void f(&T) passes an argument by reference. Parameter is an alias of the argument. 
 Operations on the parameter within the function body are also operations on the argument.
 
+#### Exercise 6.14
+> Give an example of when a parameter should be a reference type. Give an example of when a parameter should not be a reference.
+
+If we wish the function to affect the values of the passed arguments, use reference. If not, don't.
+
+### Exercise 6.15
+> Explain the rationale for the type of each of find_char's parameters. In particular,  Why is s a reference to const but 'occurs' is a plain reference?
+
+s is a reference because we do not wish to copy a potentially long string.
+
+s is also const because we do not want to make any changes to s.
+
+occurs is a plain reference because we want to the function to increment the value of 'occur'.
+
+> Why is the char parameter not a reference?
+
+We can pass temporary values of c to function if it is not a reference.
+
+> What would happen if we made s a plain reference?
+
+If s was a plain reference the function could make changes to the value of s.
+
+> What if we made 'occurs' a reference to const?
+
+If 'occurs' were a const reference we could not increment the variable.
+
+### Exercise 6.16
+> The following function, althugh legal, is less useful than it might be. Identify and correct the limitation on this function.
+```c++
+bool is_empty(string& s) { return s.empty(); }
+```
+The function does not change the passed argument, so the parameter should be const & string. The function cannot currently be passed a const string.
+
+### [Exercise 6.17](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-17.cpp)
+
+### Exercise 6.18
+> Write declarations for each of the follwing functions. When you write these declarations, use the name of thefunction to indiacte what the function does.
+
+(a) A function named compare that returns bool, and has two parameters that are references to a class names matrix.
+```c++
+bool compare(const matrix & p1, const matrix & p2); 
+```
+
+(b) A function named change_val that returns a vector<int>iterator and takes two parameters: one is an int and the other is an iterator for a vector<int>
+```c++
+vector<int>::iterator change_val(int p1, vector<int>::iterator p2);
+```
+
+### Exercise 6.19 
+> Given the following declarations, determine which calls are legal and which are illegal. For those that are illegal, explain why.
+```c++
+double calc(double);
+int count(const string &, char)
+int sum (vector<int>::iterator, vector<int>::iterator, int);
+vecctor<int> vec (10);
+
+(a) calc (23.4, 55.1);
+//illegal, function only takes one argument.
+
+(b) count ("abcda", 'a');		
+//legal
+
+(c) calc(66);
+//legal. 66 implicitly converted to double.
+
+(d) sum(vec.begin(), vec.end(), 3.8)	
+//legal, 3.8 implicitly converted from double to int 3
+```
+
+### Exercise 6.20
+> When should reference parameters be reference to const? What happens if we make a parameter a plain reference when it could be a reference to const? 
+
+Refrence parameters should be references to const when the function makes no changes to the argument.
+
+A plain refrence parameter precludes the use of a literal or a const object as an argument.
+
+
+
+
+
+
+
+
+
 
 
 
