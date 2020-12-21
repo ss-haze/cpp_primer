@@ -164,7 +164,7 @@ A plain refrence parameter precludes the use of a literal or a const object as a
 
 ### [Exercise 6.23](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-23.cpp)
 
-### [Exercise 6.24](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-24.cpp)
+### Exercise 6.24
 > Explain the behaviour of the folowing function. If there are problems in the code, explain what they are and how you might fix them.
 ```c++
 void print (const int ia[10])
@@ -179,7 +179,7 @@ void print (const int (*ia)[10]){........}
 void print (const int *ia[], size_t size){.......}
 ```
 
-### [Exercise 6.25 + 6.26](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-25_6-26.cpp)
+### [Exercise 6.25 + 6.26](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-26.cpp)
 
 ### [Exercise 6.27](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-27.cpp)
 
@@ -205,7 +205,7 @@ If we do not want the returned object to be an lvalue, we should use const refer
 ### Exercise 6.32
 > Indicate whether the following function is legal. If so, explain what it does; if not, correct any errors and then explain it.
 
-´´´c++
+```c++
 int& get(int* arry, int index)
 {
 	return arry[index];
@@ -220,6 +220,7 @@ int main()
 return 0;
 }  
 ´´´
+
 
 
 
