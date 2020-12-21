@@ -164,6 +164,66 @@ A plain refrence parameter precludes the use of a literal or a const object as a
 
 ### [Exercise 6.23](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-23.cpp)
 
+### [Exercise 6.24](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-24.cpp)
+> Explain the behaviour of the folowing function. If there are problems in the code, explain what they are and how you might fix them.
+```c++
+void print (const int ia[10])
+{
+  print (size_t i=0; i!=10; ++i)
+  cout << ia[i] << endl;
+}
+```
+The function parameter is actually a pointer to the first element in an array of unspecified size. Were the array of size 3, for example, the function body would loop past the ed of the array and output undefined values. Possible solutions are to pass a pointer to the beginning of array of 10 elements, or to pass the size of the array along with the pointer to the first element:
+```c++
+void print (const int (*ia)[10]){........}
+void print (const int *ia[], size_t size){.......}
+```
+
+### [Exercise 6.25 + 6.26](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-25_6-26.cpp)
+
+### [Exercise 6.27](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-27.cpp)
+
+### Exercise 6.28
+> In the second version of error_msg that has an ErrCode parameter, what is the type of elem in the for loop?
+
+elem is a const string &
+
+### Exercise 6.29
+> When you use an initialzer_list in a range for would you ever use a reference as the loop control variable? If so, why? If not, why not?
+
+If the list contains a built-in type such as int, there is negligible overhead in copying the list elements, but if the list contains complex user-defined types, then reference use would be more optimal.
+
+### [Exercise 6.30](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-30.cpp)
+
+### Exercise 6.31 
+> When is it valid to return a reference? A reference to const?
+
+It is valid to return a reference to a pre-existing non-local object. 
+
+If we do not want the returned object to be an lvalue, we should use const reference as the return type.
+
+### Exercise 6.32
+> Indicate whether the following function is legal. If so, explain what it does; if not, correct any errors and then explain it.
+
+´´´c++
+int& get(int* arry, int index)
+{
+	return arry[index];
+}
+
+int main()
+{
+	int ia[10];
+	for (int i = 0; i != 10; i++)
+		get(ia, i) = i;
+	for (auto i : ia) std::cout << i << " ";
+return 0;
+}  
+´´´
+
+
+
+
 
 
 
