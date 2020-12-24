@@ -384,7 +384,8 @@ We will break out of the loop either if cin returns false (string not input, or 
 The assert in the body of the loop tests that the input stream is true (ie not in error or eof). 
 If the program terminates, we know it is because cin is in a fail state (ie a string was not input) and not because s==bought.
 
-I don't think this is a good use of assert, because if NDBUG is defined, the program will not terminate if a non-string is input as needed.
+I don't think this is a good use of assert, because if NDBUG is defined, the program will not terminate if a non-string 
+is input as needed.
 Better might be something like putting an if(cin) statement inside a try block and throwing an exception if cin returns false. 
 */
 ```
@@ -392,9 +393,12 @@ Better might be something like putting an if(cin) statement inside a try block a
 ### Exercise 6.49
 > What is a candidate function? What is a viable function?
 ```
-A candidate function is a function with the same name as the called function and for which a declaration is visible at the point of the call.
+A candidate function is a function with the same name as the called function 
+and for which a declaration is visible at the point of the call.
 
-A viable function is a candidate function that has the same number of parameters as there are arguments in the call, and the type of each argument must either match or be convertible to the type of its corresponding parameter.
+A viable function is a candidate function that has the same number of parameters 
+as there are arguments in the call, and the type of each argument must 
+either match or be convertible to the type of its corresponding parameter.
 ```
 
 ### Exericse 6.50
@@ -438,15 +442,18 @@ what is the rank of each conversion in the following calls?
 
 (a)
 	int calc(int &, int&)
-	int calc (const int &, const int &)		//this version can be called by two const int arguments
+	int calc (const int &, const int &)		
+	//this version can be called by two const int arguments
 
 (b)
 	int calc(char*, cnar *)
-	int calc(const char*, const char *)		//this version can be called by two const char arguments
+	int calc(const char*, const char *)		
+	//this version can be called by two const char arguments
 
 (c) 
 	int calc(char*, char*)
-	int calc(char * const, char* const)		//this version has parameters with high level const, which is ignored. Hence a restatement of earlier version.
+	int calc(char * const, char* const)		
+	//this version has parameters with high level const, which is ignored. Hence a restatement of earlier version.
 ```
 
 
