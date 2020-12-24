@@ -456,6 +456,46 @@ what is the rank of each conversion in the following calls?
 	//this version has parameters with high level const, which is ignored. Hence a restatement of earlier version.
 ```
 
+### Exercise 6.54
+> Write  a declaration for a function that takes two int parameters and returns an int, and declare a vector whose elements have his function pointer type.
+
+```c++
+
+int func(int, int);
+
+vector<int(*)(int, int)>v0;
+	
+using ptr2Func1 = int (*)(int, int);
+vector<ptr2Func1> v1;
+
+using ptr2Func6 = int(int, int);
+vector<ptr2Func6*> v6;
+
+typedef decltype(func) ptr2Func2;
+vector<ptr2Func2*> v2;
+
+typedef decltype(func) *ptr2Func5;
+vector<ptr2Func5> v5;
+
+using ptr2Func3 = decltype(func)*;
+vector<ptr2Func3> v3;
+
+using ptr2Func4 = decltype(func);
+vector<ptr2Func4*> v4;
+
+typedef int(*p2f)(int, int);
+vector<p2f> v10;
+
+vector<decltype(func)*>v11;
+	
+```
+
+### [Exercise 6.55](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-55.cpp)
+
+### [Exercise 6.56](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-56.cpp)
+
+
+
 
 
 
