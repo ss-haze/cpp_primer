@@ -11,4 +11,4 @@ These answers were compiled with the g++ compiler and with Visual Studio Communi
   + [Chapter 4: Expressions](https://github.com/ss-haze/cpp_primer/tree/main/ch04)
   + [Chapter 5: Statements](https://github.com/ss-haze/cpp_primer/tree/main/ch05)
   + [Chapter 6: Functions](https://github.com/ss-haze/cpp_primer/tree/main/ch06)
-  + [Chapter 7: Classes]
+  + [Chapter 7: Classes](https://github.com/ss-haze/cpp_primer/tree/main/ch07)
