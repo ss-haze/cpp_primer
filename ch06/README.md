@@ -221,4 +221,253 @@ return 0;
 }
 ```
 
-###
+### [Exercise 6.33](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-33.cpp)
+
+### Exercise 6.34 
+> what would happen if the stopping condition in factorial were if (val!=0).
+
+a) if val were positive, then when val has the value 1, instead of returning 1, we would reduce the value of val to 0 and call the factorial function again. Assuming we return 1 when val==0, 
+we would get the same result, but would have needlessly iterated through the function one extra time.
+
+b) If val were negative, we would be decreasing the value of val indefinitely, causing stack overflow.
+
+### Exercise 6.35
+> In the call to fact, why did we pass val-1 rather than val--
+
+Were the call as follows: return factorial(val--)*val
+
+We wish this expression to first evaluate val, then multiply it by factorial(val--),
+but the order of evalution of the multiplication operator is not guaranteed, so we might instead be 
+decreasing the value of val, sending this reduced value to the factorial function, and then multiplying the result with the reduced value of val.
+
+### Exercise 6.36
+> Write the declaration for a function that returns a reference to an array of ten strings, without using either a trailing return, decltype, or a type alias.
+
+string (& func()) [10];
+
+### Exercise 6.37
+> Write three additional declarations for the function in the previous exercise. One should use a type alias, one should use a trailing return, and the third should use decltype. Which form do you prefer and why?
+
+	//full
+   string (& func(string(& arr_str)[5]))[5]
+   
+   //using type alias using
+   using  arrStrT = string[5]
+   arrStrT &func (arrStrT & arr_str)
+
+   //using type alias typedef
+   typedef string arrStrT[5]
+   arrStrT &func (arrStrT & arr_str)
+
+	//using trailing return
+	auto func(arrStrT & arr_Str)->string (&)[5]
+
+	//using decltype
+	string arr[5] = {....}
+	decltype (arr) &func(arrStrT & arr_Str)
+
+### Exercise 6.38
+> Revise the arrPtr function to return a reference to the array.
+
+```c++
+a)
+decltype(odd) & arrPtr (int i )
+		{
+			return (i%2) ? odd: even;
+		}
+
+b)
+		auto arrPtr(int i)->int(&)[5]
+		{
+			return (i%2) ? odd: even;
+		}
+
+c)
+		using arr_int_5 = int [5];
+		arr_int_5 & arrPtr(int i)
+
+d)
+		int (& arrPtr(int i))[5]        int & arrPtr(int i)[10]
+		{
+			return (i%2) ? odd: even;
+		}
+```
+
+### Exercise 6.39
+> Explain what the effect of the second declaration in each one of the following sets of declarations. Indicate which, if any, are illegal.
+´´´
+(a)
+int calc(int, int);
+int calc(const int, const int);
+
+latter adds high level const to parameter. Is a redeclaration of earlier function.
+
+(b) 
+int get()
+double get()
+
+illegal. functions cannot take same parameters and differ only in the return type.
+
+(c)
+int *reset(int *)
+double *reset(double*)
+
+overload of reset function. second fn takes and returns a different parameter type.
+´´´
+
+### Exercise 6.40
+> Which, if either, of the following declarations are errors? Why?
+```c++
+(a) 
+int ff( int a, int b=0, int c=0)  
+//ok
+
+(b) char *init (int ht=24, int wd, char bckgrnd) 
+//Error.  Must give default values for other two parameters.
+```
+### Exercise 6.41
+> Which, if any, of the following calls are illegal? Why? Which, if any, are legal but unlikely to match the programmer's intent? Why?
+```c++
+	char *init(int ht, int wd=80, char bckgrnd = ' ');
+
+	(a) init();   
+	//illegal. Must pass value for ht
+
+	(b) init(24,10);  
+	//legal.  here ht=24, wd=10 and bckgrnd=' '
+
+	(c) init(14, '*'); 
+	//legal, but int wd is initialized by '*'. Value was probably intended for bckgrnd.
+```
+
+### [Exercise 6.42](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-42.cpp)
+
+### Exercise 6.43
+> Which one of the following declarations and definitions would you put in a header? In a source file? Explain why.
+```c++
+(a) inline bool eq(const BigInt&, const BigInt&){......}
+
+(b) void putValues(int *arr, int size);
+```
+I would put both in a header file. a) is an inline function, and b) is a function declaration.
+
+### [Exercise 6.44](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-44.cpp)
+
+### Exercise 6.45
+> Review the programs you've written for the earlier exercises and decide whether they should be defined as inline. If so, do so. If not, explain why they should not be inline.
+
+Small functions such as make_plural and arrPtr can be inline.
+
+Some of the print functions that used recursion cannot be used inline.
+
+### Exercise 6.46
+> Would it be possible to define isShorter as a constexpr? If so, do so. If not, explain why not.
+
+The isShorter function compares the length of two strings. In order to do this, it calls the size() method on both parameters.
+
+The method can only be given a value at run-time, not compile time, therefore the return value of the function cannot be determined at compile time.
+
+### [Exercise 6.47](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-47.cpp)
+
+### Exercise 6.48
+> Explain what this loop does and whether it is a good use of assert.
+
+```c++
+string s;
+	while (cin >> s && s != sought) {}
+	assert(cin);
+
+/*
+The loop tests for a string input, and will execute as long as that string does not equal sought. 
+We will break out of the loop either if cin returns false (string not input, or s==sought).
+
+The assert in the body of the loop tests that the input stream is true (ie not in error or eof). 
+If the program terminates, we know it is because cin is in a fail state (ie a string was not input) and not because s==bought.
+
+I don't think this is a good use of assert, because if NDBUG is defined, the program will not terminate if a non-string is input as needed.
+Better might be something like putting an if(cin) statement inside a try block and throwing an exception if cin returns false. 
+*/
+```
+
+### Exercise 6.49
+> What is a candidate function? What is a viable function?
+```
+A candidate function is a function with the same name as the called function and for which a declaration is visible at the point of the call.
+
+A viable function is a candidate function that has the same number of parameters as there are arguments in the call, and the type of each argument must either match or be convertible to the type of its corresponding parameter.
+```
+
+### Exericse 6.50
+> Given the declarations for f from page 242, list the viable functions, if any, for each of the following calls. Indicate  which function is the best match, or if the call is illegal whether there is no match or why the call is ambiguous.
+
+```c++
+void f();
+void f(int);
+void f(int, int);
+void f(double, double =3.14)
+
+
+(a) f(2.56, 42)				// illegal. ambigious call between vid f(int, int) and void f(double, double =3.14)
+(b) f(42)					// match to void f(int)
+(c) f(42,0)					// match to f(int, int)
+(d) f(2.56, 3.14)			// match to void f(double, double)
+```
+
+### [Exercise 6.51](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-51.cpp)
+
+### Exercise 6.52
+> Given the following declarations:
+```c++
+void manip (int, int);
+double dobj;
+```
+what is the rank of each conversion in the following calls?
+
+```c++
+(a) manip ('a','z')				
+//Match through integral promotion (rank 3)
+
+(b) manip (55.4, dobj)			
+//Match through arithmetic conversion (rank 4)
+```
+
+### Exercise 6.53
+> Explain the effects of the second declaration in each of the following sets of declarations.Indicate which, if any, are illegal.
+
+```c++
+
+(a)
+	int calc(int &, int&)
+	int calc (const int &, const int &)		//this version can be called by two const int arguments
+
+(b)
+	int calc(char*, cnar *)
+	int calc(const char*, const char *)		//this version can be called by two const char arguments
+
+(c) 
+	int calc(char*, char*)
+	int calc(char * const, char* const)		//this version has parameters with high level const, which is ignored. Hence a restatement of earlier version.
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
