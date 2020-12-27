@@ -1,16 +1,17 @@
-### [Exercise 7.1] (https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-01.cpp)
+### [Exercise 7.1](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-01.cpp)
 
-### [Exercise 7.2] (https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-02.cpp)
 
-### [Exercise 7.3] (https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-03.cpp)
+### [Exercise 7.2](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-02.cpp)
 
-### [Exercise 7.4] (https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-04.cpp)
+### [Exercise 7.3](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-03.cpp)
 
-### [Exercise 7.5] (https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-05.cpp)
+### [Exercise 7.4](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-04.cpp)
 
-### [Exercise 7.6] (https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-06.cpp)
+### [Exercise 7.5](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-05.cpp)
 
-### [Exercise 7.7] (https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-07.cpp)
+### [Exercise 7.6](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-06.cpp)
+
+### [Exercise 7.7](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-07.cpp)
 
 ### [Exercise 7.8] 
 > Why does read define its Sales_data parameter as a plain reference and print define its parameter as a reference to const?
