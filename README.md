@@ -12,3 +12,5 @@ These answers were compiled using the g++ compiler and Visual Studio Community 2
   + [Chapter 5: Statements](https://github.com/ss-haze/cpp_primer/tree/main/ch05)
   + [Chapter 6: Functions](https://github.com/ss-haze/cpp_primer/tree/main/ch06)
   + [Chapter 7: Classes](https://github.com/ss-haze/cpp_primer/tree/main/ch07)
+* Part 2: The C++ Library
+  + [Chapter 8: The IO Library](https://github.com/ss-haze/cpp_primer/tree/main/ch08)
