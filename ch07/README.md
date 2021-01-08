@@ -281,11 +281,4 @@ vector<C> vec(10);
 (d) If a class does not define a default constructor, the compiler generates one that initializes
     each data member to the default value of its associated type.
 // Flase. The compiler will not provide a default constructor if we create any other constructor.
-
-
-
-
-
-
-
-
+```
