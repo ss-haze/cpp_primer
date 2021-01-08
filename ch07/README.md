@@ -244,6 +244,47 @@ It would be illegal, because we would then have two default constructors.
 
 ### [Exercise 7.41](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-41.cpp)
 
+### [Exercise 7.42](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-42.cpp)
+
+### [Exercise 7.43](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-43.cpp)
+
+### Exercise 7.44
+> Is the following declaation legal? If not, why not?
+```c++
+vector<NoDefault> vec(10);
+// Illegal. We have a vector containing 10 elements of type NoDefault.
+// Default construnctor is called on these 10 elements, but NoDefault
+// has no default constructor.
+```
+
+### Exercise 7.45
+> What if we defined the vector in the previous exercise to hold objects of type C?
+```c++
+vector<C> vec(10);
+// This is legal. Each element is of type C, and C has a default constructor
+// that calls the NoDefault constructor that takes an int
+```
+
+### Exercise 7.46
+> Which, if any, of the following statements are untrue? Why?
+```c++
+(a) A class must provide at least one constructor
+// False. A class can have no contructors, and synthesised constructors will be provided.
+
+(b) A default constructor is a constructor with an empty parameter list.
+// False. A default constructor can also have default arguments.
+
+(c) If there are no meaningful default values for a class, 
+    the class should not provide a default constructor
+// False. The class should provide a default constructor.
+
+(d) If a class does not define a default constructor, the compiler generates one that initializes
+    each data member to the default value of its associated type.
+// Flase. The compiler will not provide a default constructor if we create any other constructor.
+
+
+
+
 
 
 
