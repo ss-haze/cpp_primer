@@ -57,7 +57,8 @@ Members defined or declared before the first access specifier in a class are pri
 > What is encapsulation? Why is it useful?
 ```
 Encapsulation is the separation of the implementation and interface of a class.
-An encapsulated class hides the implementation from the user, who does not need to know the workings of the class. The user can simply use the class interface to use the class. 
+An encapsulated class hides the implementation from the user, who does not need to know the workings of the class. 
+The user can simply use the class interface to use the class. 
 Encapsulation also prevents user code corrupting the implementation. 
 A class implementation can change over time and changes need to be made only in the implementation - user code can be left as is.
 ```
@@ -90,6 +91,7 @@ class Person
 > When are friends useful? Discuss the pros and cons of using friends.
 ```
 Declaring a function as a friend allows that function to access the non-public members of a class.
+
 Pros:
 Allows access to private members.
 
@@ -101,3 +103,148 @@ Friend functions must be declared as friends inside the class and redeclared out
 ### [Exercise 7.21](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-21.cpp)
 
 ### [Exercise 7.22](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-22.cpp)
+
+### [Exercise 7.23](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-23.cpp)
+
+### [Exercise 7.24](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-24.cpp)
+
+### Exercise 7.25
+> Can Screen safely rely on the default versions of copy and assignment? If so, why? If not, why not?
+
+Yes, because Screen members are all string type.
+
+### [Exercise 7-26](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-26.cpp)
+
+### [Exercise 7.27](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-27.cpp)
+
+### Exercise 7.28
+> What would happen in the previous exercise if the return type of move, set and display was Screen rather than Screen&?
+
+Were the return type Screen,the second call to Display would not display the '#' in the output, since the changes have been made to copies of myScreen, not the original myScreen object. 
+
+### [Exercise 7.29](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-29.cpp)
+
+### Exercise 7.30
+> It is legal but redundant to refer to members through the this pointer. Discuss the pros and cons of explicitly using the this pointer to access members.
+
+Pros:
+Easier to read
+Cons:
+More to read
+
+### [Exercise 7.31](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-31.cpp)
+
+### [Exercise 7.32](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-32.cpp)
+
+### Exercise 7.33
+> What would happen if we gave Screen a size member defined as follows? Fix any problems you identify.
+```c++
+pos Screen::size() const
+{
+  return height*width;
+}
+
+//corrected
+Screen::pos Screen::size() const
+{
+  return height*width;
+}
+
+//pos is a Class type of Screen, therefore we must use the scope operator to alter the compiler to the location of its definition.
+```
+
+### Exercise 7.34
+> What would happen if we put the typedef of pos in the Screen class on page 285 as the last line in the class?
+```
+all earlier uses of pos would then be undefined.
+```
+
+### Exercise 7.35
+```c++
+typedef std::string Type;
+Type initVal();     //string initVal()
+class Exercise {
+  public:
+   typedef double Type;
+   Type setVal(Type);  //double setVal(double)
+   Type initVal();
+  private:
+   int val;
+   
+};
+Type Exercise::setVal(Type parm) {    //ERROR: double Exercise::setVal(double parm) 
+  val = parm + initVal();
+  return val;
+}
+
+//solution:
+
+typedef std::string Type;
+Type initVal();     //string initVal()
+class Exercise {
+  public:
+   typedef double Type;
+   Type setVal(Type);  //double setVal(double)
+   Type initVal();
+  private:
+   int val;  
+};
+
+Exercise::Type Exercise::initVal(){double d = 5.0; return d;}
+Exercise::Type Exercise::setVal(Type parm) {    
+  val = parm + initVal();
+  return val;
+}
+```
+### Exercise 7.36 
+> The following initializer is in error. Identify and fix the problem.
+```c++
+struct X {
+  X (int i, int j)
+  :
+  base(i), rem(base % j) {} //error. rem initialized first, but base is undefined.
+  int rem, base;  
+};
+
+//solution
+struct X {
+  X (int i, int j)
+  :
+  base(i), rem(base % j) {}
+  int base, rem;
+};
+```
+
+### Exercise 7.37
+> Using the version of Sales_data from this section, determine which constructor is used to initialize each of the following variables adn list the values of the data members in each object.
+```c++
+Sales_data first_item(cin);
+int main() {
+  Sales_data next; 
+  Sales_data last("9-999-99999-9");
+}
+// first_item uses Sales_data (std::istream & is)
+// next and last use Sales_data (std::string s= "")
+// next.bookNo is 0 and last.bookNo is equal to "9-999-99999-9"
+```
+
+### Exercise 7.38
+> We might want to supply cin as a default argument to the constructor that takes an istream&. Write the constructor declaration that uses cin as a default argument.
+```c++
+Sales_data (std::istream& is = std::cin) {read(is, *this); }
+```
+
+### Exercise 7.39
+> Would it be legal for both the constructor that takes a string and the one that takes an istream& to have default arguments? If not, why not?
+```
+It would be illegal, because we would then have two default constructors.
+```
+
+### [Exercise 7.40](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-40.cpp)
+
+### [Exercise 7.41](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-41.cpp)
+
+
+
+
+
