@@ -276,9 +276,120 @@ vector<C> vec(10);
 
 (c) If there are no meaningful default values for a class, 
     the class should not provide a default constructor
-// False. The class should provide a default constructor.
+// False. The class should provide a default constructor. (Not sure about this: feedback welcomed)
 
 (d) If a class does not define a default constructor, the compiler generates one that initializes
     each data member to the default value of its associated type.
-// Flase. The compiler will not provide a default constructor if we create any other constructor.
+// False. The compiler will not provide a default constructor if we create any other constructor.
 ```
+
+### Exercise 7.47
+> Explain whether the Sales_data cosntructor that takes a string should be explicit. What are the benefits of making the constructor explicit? What are the drawbacks?
+```
+Whether it is explicit or not depends on the needs of the program.
+i.e. is it useful to allow statements such as item.combine("999-999-999"?
+Pros: no non class types are converted into class types, cutting down on possible errors.
+Cons: Must explicitly use the contructor to make type conversions.
+```
+
+### Exercise 7.48
+> Assuming the Sales_data constructors are not explicit, what operations happen during the following definitions?
+```c++
+string null_isbn("9-999-99999-9");  //string created
+Sales_data item1(null_isbn); // item1 created using constructor Sales_data(const string& s)
+Sales_data item2("9-999-99999-9"); // implicit conversion to string, then same as above
+```
+> What happens if the Sales_data constructors are explicit?
+```
+The results are the same.
+```
+
+### Exercise 7.49
+> For each of the three following declarations of combine, explain what happens if we call i.combine(s), where i is a Sales_data and s is a string:
+```c++
+(a) Sales_data &combine (Sales_data);
+// fine. s implicity converted to Sales_data type and combined with i.
+
+(b) Sales_data &combine (Sales_data&);
+// illegal. s converted to Sales_data type, but cannot bind this temporary to combine's parameter.
+
+(c) Sales_data &combine(const Sales_data&) const;
+// illegal. this pointer is ptr to const, so when combine tries to alter i, we encounter an error.
+```
+
+### [Exercise 7.50](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-50.cpp)
+
+### Exercise 7.51 
+> Why do you think vector defines its single-argument constructor as explicit, but string does not?
+```
+Were the vector constructor not explicit, we would be able to call a function that has a vector<int>
+parameter with a simple number parameter. It is not clear what such a call would be trying to achieve.
+
+A string parameter however, can be called with, for example, a const char array, which is highly useful.
+```
+
+### Exercise 7.52
+> Using our first version of Sales_data from 2.6.1 explain the following intialization. Identify and fix any problems.
+```c++
+Sales_data item = {"978-0590353403", 25, 15.99);}
+
+// We cannot treat Sales_item as an aggregate because it currently has in-class initializers.
+```
+
+### [Exercise 7.53](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-53.cpp)
+
+### Exercise 7.54
+> Shoud the members of Debug that begin with set_ be declared as constexpr? If not, why not?
+```
+No. Constexpr functions are implicitly const, but the set_ functions assign to the object member variables.
+```
+
+### Exercise 7.55
+> Is the Data class from 7.5.5 a literal class? If not, why not? If so,explain why it is literal.
+```
+No. The struct must have only literal types as members, which precludes the std::string member.
+```
+
+### Exercise 7.56
+> What is a static class member? What are the advantages of static members? How do they differ from ordinary members?
+
+A static class member is associated with the class, not with an object of the class type.
+
+Objects of the class type do not need to store a separate value for the static object.. And if the value of the static member is changed, each object can use the new value.
+
+A static data member can have incomplete type and can be used as a as a default argument.
+
+### [Exercise 7.57](https://github.com/ss-haze/cpp_primer/blob/main/ch07/7-57.cpp)
+
+### Exercise 7.58
+> Which, if any, of the following satic data member declarations and definitons are errors? Explain why.
+```c++
+//example.h
+Class Example {
+  public:
+    static double rate = 6.5;
+    static const int vecSize=20;
+    static vector<double> vec(vecSize);
+};
+//example.C
+#include "example.h"
+double Example::Rate;
+vector<double> Example::vec;
+
+//CORRECTIONS:
+//example.h
+Class Example {
+  public:
+    static constexpr double rate = 6.5;      //needs constexpr, since rate is defined outside class
+    static const int vecSize = 20;           
+    static vector<double> vec;          //cannot initialize static within class
+};
+//example.C
+#include "example.h"
+constexpr double Example::rate;
+vector<double> Example::vec(Example::vecSize);
+
+
+
+
+
