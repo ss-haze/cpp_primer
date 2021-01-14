@@ -23,9 +23,9 @@ Iterators begin and end must refer to an element, or one past the last element, 
 It is possible to reach end by repeatedly incrementing begin i.e. end must not precede begin.
 ```
 
-### [Exercise 9-4](https://github.com/ss-haze/cpp_primer/blob/main/ch08/9-04.cpp)
+### [Exercise 9-4](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-04.cpp)
 
-### [Exercise 9-5](https://github.com/ss-haze/cpp_primer/blob/main/ch08/9-05.cpp)
+### [Exercise 9-5](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-05.cpp)
 
 ### Exercise 9-6
 > What is wrong with the folloöwing program? How might you correct it?
