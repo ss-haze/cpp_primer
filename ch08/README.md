@@ -24,7 +24,8 @@ The cin eofbit and failbit are set to true if we hit the end of the file.
 ### Exercise 8.12
 > Why didn't we use in-class initializers in PersonInfo?
 ```
-String and vector have default synthesized constructors,therefore any declared PersonInfo objects will have an empty string for the name member and an empty vector for the vector member. Default values are not needed.
+String and vector have default synthesized constructors,therefore any declared PersonInfo objects will have an empty string 
+for the name member and an empty vector for the vector member. Default values are not needed.
 ```
 
 ### Exercise 8.14
