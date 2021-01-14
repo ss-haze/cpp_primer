@@ -1,0 +1,7 @@
+Lear 20 10
+Lear 10 10
+Lear 10 10
+Shelley 5 10
+Shelley 3 10
+Shelley 12 10
+Joyce 20 5

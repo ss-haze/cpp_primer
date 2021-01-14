@@ -1,0 +1,6 @@
+Lear 40 400 10
+Shelley 20 200 10
+Joyce 20 100 5
+Lear 40 400 10
+Shelley 20 200 10
+Joyce 20 100 5
