@@ -110,7 +110,7 @@ It requires only that the elements of the copied container can be converted into
 
 ### [Exercise 9-15](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-15.cpp)
 
-### (Exercise 9-16](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-16.cpp)
+### [Exercise 9-16](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-16.cpp)
 
 ### Exercise 9-17
 > Assuming c1 and c2 are containers, what (if any) constraints does the following usage place on the types of c1 and c2?
