@@ -51,6 +51,78 @@ std::list<std::string>::const_iterator to read elements.
 std::list<std::string>::iterator to write elements.
 ```
 
+### Exercise 9-9
+> What is the difference between the begin and cbegin functions?
+```
+begin gives us an iterator type and cbegin gives us a const_iterator type.
+```
+
+### Exercise 9-10
+> What are the types of the following four objects?
+```c++
+vector<int> v1;
+const vector<int> v2;
+auto it1 = v1.begin(), it2 = v2.begin();
+auto it3 v1.cbegin(), it3 = v2.cbegin();
+
+// it1 is type vector<int>::iterator
+// it2 is type vector<int>::const_iterator
+// it3 is type vector<int>::const_iterator
+// it4 is type vector<int>::const_iterator
+```
+
+### Exercise 9-11
+> Show an example of each of the six ways to create and initialize a vector. Explain what values each vector contains.
+```c++
+//vector of six ints
+vector<int> v1 {1,2,3,4,5,6};
+vector<int> v1 = {1,2,3,4,5,6};
+
+//vector of 10 ints, each of value 5
+vector<int> v2 (10, 5);
+
+//vector of 10 value-initialized ints
+vector<int> v3 (10);
+
+// vector copy of v3
+vector<int> v4 = v3;
+vector<int> v4(v3;
+
+//empty vector
+vector<int> v5;
+
+//vector copy using range iterators, containing values 1,2,3, 4,5,6
+vector<int> v6 v1(v1.begin(), v1.end());
+```
+
+### Exercise 9-12
+> Explain the differences between the constructor that takes a container to copy and the constructor that takes two iterators.
+```
+A constructor that takes a container requires that both containers have the same container and element type.
+
+A constructor that takes two iterators does not require the container types to be identical.
+It requires only that the elements of the copied container can be converted into the elements of the target container.
+```
+
+### Exercise 9-13(https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-13.cpp)
+
+### Exercise 9-14(https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-14.cpp)
+
+### Exercise 9-15(https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-15.cpp)
+
+### Exercise 9-16(https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-16.cpp)
+
+### Exercise 9-17
+> Assuming c1 and c2 are containers, what (if any) constraints does the following usage place on the types of c1 and c2?
+```c++
+if (c1 < c2)
+
+// c1 and c2 must have the same container and element types
+// the element must support the < operation
+```
+
+
+
 
 
 
