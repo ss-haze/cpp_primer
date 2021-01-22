@@ -1,5 +1,6 @@
 ### Exercise 9-1
 > Which is the most appropriate - a vector deque or list - for the following tasks? Explain the rationale for your choice. If there is no reason to prefer one or another container, explain why not.
+
 (a) Read a fixed number of words, inserting them alphabetically as they are entered. We'll see in the 
 next chapter that associative containers are better suited to this problem.
 - Linked List. Need fast insertion within the container.
