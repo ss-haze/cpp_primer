@@ -175,11 +175,11 @@ If elem2 = off-the-end iterator, everything from elem1 to the end are erased.
 If elem1 and elem2 = off-the-end iterator, nothing is erased.
 ```
 
-### (Exercise 9-26](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-26.cpp)
+### [Exercise 9-26](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-26.cpp)
 
-### (Exercise 9-27](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-27.cpp)
+### [Exercise 9-27](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-27.cpp)
 
-### (Exercise 9-28](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-28.cpp)
+### [Exercise 9-28](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-28.cpp)
 
 ### Exercise 9-29
 > Given that vec holds 25 elements, what does vec.resize(100) do? What if we next wrote vec.resize(10)?
@@ -194,7 +194,7 @@ vec.resize(10) would then remove the last 90 elements from the vector.
 Additional elements must have a default constructor for initialization.
 ```
 
-### (Exercise 9-31](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-31.cpp)
+### [Exercise 9-31](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-31.cpp)
 
 ### Exercise 9-32
 > In the program on page 354 would it be legal to write the call to insert as follows? If not, why not?
@@ -204,9 +204,9 @@ iter = vi.insert(iter, *iter++);
 // The second statement could be evaluated first, for example, and then that location could be used for the insert.
 ```
 
-### (Exercise 9-33](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-33.cpp)
+### [Exercise 9-33](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-33.cpp)
 
-### (Exercise 9-34](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-34.cpp)
+### [Exercise 9-34](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-34.cpp)
 
 ### Exercise 9-35
 > Explain the difference between a vector's capacity and its size.
@@ -228,7 +228,7 @@ For an array, its size is fixed. There is no need to reallocate or preallocate m
 For a list, its elements are non-contiguous in memory, therefore it never needs to reallocate or preallocate memory.
 ```
 
-### (Exercise 9-38](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-38.cpp)
+### [Exercise 9-38](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-38.cpp)
 
 
 ### Exercise 9-39
@@ -271,7 +271,13 @@ We can call the reserve member on the string e.g. s.reserve(130);
 name is not a substring of the string numbers, therefore numbers.find(name) returns string::npos
 ```
 
-### (Exercise 9-50](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-50.cpp)
+### [Exercise 9-50](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-50.cpp)
+
+### [Exercise 9-51](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-51.cpp)
+
+### [Exercise 9-52](https://github.com/ss-haze/cpp_primer/blob/main/ch09/9-52.cpp)
+
+
 
 
 
