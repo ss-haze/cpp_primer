@@ -7,7 +7,7 @@ int main ()
 {
   std::list<const char*> lst {"hi", "bye", "yes", "no"};
 
-  std::vector<std::string> v1 (lst.begin(), lst.end()); 
+  std::vector<std::string> v1 (lst.cbegin(), lst.cend()); 
 
   for (const auto &it: v1) std::cout <<it <<" ";
 

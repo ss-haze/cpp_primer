@@ -56,5 +56,8 @@ int main(int argc, char** argv)
       std::cerr << entry.name << " has the following invalid number(s) " << badNums.str() << std::endl;
   }
 
+  auto p=argv +1;
+  std::cout <<*p;
+
   return 0;
 }

@@ -1,14 +1,22 @@
 #include <vector>
-#include <list>
 #include <iostream>
+
+using std::cout;
+using std::string;
+using std::vector;
 
 int main()
 {
-  const char* articles [] {"one", "two", "three"};
+  string s = "hello2ghtj4gjk0kjk", numbers = "0123456789";
 
-  std::cout << articles[1]<<" ";
+  for (string::size_type pos = 0; (pos = s.find_first_of(numbers, pos)) != string::npos; ++pos)
+    cout << "Number found at position: " << pos << " Element is: " << s[pos] << std::endl;
 
-  for (auto i: articles) std::cout <<i<<" ";
+vector<int> v = {1,2,3,4,5};
+
+    vector<int>::iterator::difference_type diff = v.end() - v.begin();
+
+    cout << diff;
 
   return 0;
 }
