@@ -17,8 +17,8 @@ list: useful for middle insert/delete containers
 deque: useful for when we need random-access, first/last insert/delete e.g. modelling a queue
 ```
 
-### [Exercise 11-3](https://github.com/ss-haze/cpp_primer/blob/main/ch10/11-3.cpp)
+### [Exercise 11-3](https://github.com/ss-haze/cpp_primer/blob/main/ch10/11-03.cpp)
 
-### [Exercise 11-4](https://github.com/ss-haze/cpp_primer/blob/main/ch10/11-4.cpp)
+### [Exercise 11-4](https://github.com/ss-haze/cpp_primer/blob/main/ch10/11-04.cpp)
 
 
