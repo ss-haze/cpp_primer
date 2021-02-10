@@ -36,14 +36,14 @@ Sales_data add(const Sales_data &lhs, const Sales_data &rhs) {
   return sum;
 }
 
-std::istream &read(std::istream &is, Sales_data &item) {
+std::istream& read(std::istream &is, Sales_data &item) {
   double price;
   is >> item.bookNo >> item.units_sold >> price;
   item.revenue = item.units_sold * price;
   return is;
 }
 
-std::ostream &print(std::ostream &os, const Sales_data &item) {
+std::ostream& print(std::ostream &os, const Sales_data &item) {
   os << item.isbn() << " " << item.units_sold << " "
      << item.revenue << " " << item.avg_price();
   return os;
@@ -52,27 +52,4 @@ std::ostream &print(std::ostream &os, const Sales_data &item) {
 inline
 double Sales_data::avg_price() const {
   return units_sold ? revenue / units_sold : 0;
-}
-
-int main() {
-
-  Sales_data total(std::cin);
-  if (std::cin) {
-    Sales_data trans(std::cin);
-    while (std::cin) {
-      if (total.isbn() == trans.isbn()) {
-        total.combine(trans);
-      } else {
-        print(std::cout, total) << std::endl;
-        total = trans;  
-      }
-      read(std::cin, trans);
-    }
-    print(std::cout, total) << std::endl;
-  } else {
-    std::cerr << "No data!" << std::endl;
-    return -1;
-  }
-
-  return 0;
 }

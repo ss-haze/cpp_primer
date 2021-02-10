@@ -15,3 +15,5 @@ These answers were compiled using the g++ compiler and Visual Studio Community 2
 * Part 2: The C++ Library
   + [Chapter 8: The IO Library](https://github.com/ss-haze/cpp_primer/tree/main/ch08)
   + [Chapter 9: Sequential Containers](https://github.com/ss-haze/cpp_primer/tree/main/ch09)
+  + [Chapter 10: Generic Algorithms](https://github.com/ss-haze/cpp_primer/tree/main/ch10)
+  + [Chapter 11: Associative Containers](https://github.com/ss-haze/cpp_primer/tree/main/ch11)
