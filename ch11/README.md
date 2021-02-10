@@ -19,4 +19,6 @@ deque: useful for when we need random-access, first/last insert/delete e.g. mode
 
 ### [Exercise 11-3](https://github.com/ss-haze/cpp_primer/blob/main/ch10/11-3.cpp)
 
+### [Exercise 11-4](https://github.com/ss-haze/cpp_primer/blob/main/ch10/11-4.cpp)
+
 
