@@ -112,7 +112,7 @@ while (cin >> word)
 3a) If the insert succeeded, the first member of the returned pair will be an iterator to the newly inserted element.
 3b) If the insert failed, the first member of the returned pair will be an iterator to an existant element with key == word.
 4) The pair member first, an iterator, is dereferenced, and the size_t value is accessed.
-5) This value is incremented. If insertion was successful, this value is now 1. If insertion failed, this value is simply incremented.
+5) This value is incremented. If insertion was successful, this value is now 1. If insertion failed, this value is incremented.
 ```
 
 
