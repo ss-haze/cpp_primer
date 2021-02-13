@@ -98,7 +98,6 @@ multiset<Sales_data, bool (*) (const string&, const string&)>::iterator iter = b
 
 ### [Exercise 11-20](https://github.com/ss-haze/cpp_primer/blob/main/ch11/11-20.cpp)
 
-
 ### Exercise 11.21
 > Assuming word_count is a map from string to size_t and word is a string, explain the following loop:
 ```c++
@@ -114,16 +113,11 @@ while (cin >> word)
 4) The pair member first, an iterator, is dereferenced, and the size_t value is accessed.
 5) This value is incremented. If insertion was successful, this value is now 1. If insertion failed, this value is incremented.
 ```
+### Exercise 11.22
+> Given a map<string, vector<int>>, write the types used as an argument and as the return value for the version of insert that inserts one element
+```
+arguments: pair<string, vector<int>>
+return: pair<map<string,vecor<int>>::iterator, bool>
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
+### [Exercise 11-23](https://github.com/ss-haze/cpp_primer/blob/main/ch11/11-23.cpp)
