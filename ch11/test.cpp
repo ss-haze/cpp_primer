@@ -1,24 +1,16 @@
 #include <iostream>
+#include <fstream>
 #include <string>
-#include <vector>
-#include <numeric>
 #include <map>
-
-using std::string;
-using std::vector;
 
 int main()
 {
 
-  std::multimap<string, string> mm;
+  std::map<std::string, size_t> words{{"hello", 3}, {"bye", 4}};
 
-  auto iter = mm.insert(std::make_pair("Hardy, Thomas", "Tess of the D'Urbervilles"));
+  int x = words["hello"];
 
-  mm.insert(std::multimap<string, string>::value_type("Hardy, Thomas", "Far From The Madding Crowd"));
-
-  auto ret = mm.find("Hardy, Thomas");
-
-  std::cout << ret->second;
+  std::cout << x + 1;
 
   return 0;
 }

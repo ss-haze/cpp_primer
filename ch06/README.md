@@ -19,7 +19,7 @@ Arguments are values supplied in a function call that are used to initialize a f
 //return type should be void
 
 (c) int calc (int v1, int v1) ........}  
-//no opening brace for function body, parameters must have different names
+//no opening brace for function body, parameters must have different names, function body should return int
 
 (d) double square(double x) return x*x;
 //missing braces for function body
@@ -173,7 +173,7 @@ void print (const int ia[10])
   cout << ia[i] << endl;
 }
 ```
-The function parameter is actually a pointer to the first element in an array of unspecified size. Were the array of size 3, for example, the function body would loop past the ed of the array and output undefined values. Possible solutions are to pass a pointer to the beginning of array of 10 elements, or to pass the size of the array along with the pointer to the first element:
+The function parameter is actually a pointer to the first element in an array of unspecified size. Were the array of size 3, for example, the function body would loop past the end of the array and output undefined values. Possible solutions are to pass a pointer to the beginning of array of 10 elements, or to pass the size of the array along with the pointer to the first element:
 ```c++
 void print (const int (*ia)[10]){........}
 void print (const int *ia[], size_t size){.......}
@@ -463,7 +463,7 @@ what is the rank of each conversion in the following calls?
 
 int func(int, int);
 
-vector<int(*)(int, int)>v0;
+vector<int(*)(int, int)> v0;
 	
 using ptr2Func1 = int (*)(int, int);
 vector<ptr2Func1> v1;
