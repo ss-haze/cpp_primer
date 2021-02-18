@@ -36,6 +36,8 @@ A set has unique elements, ordered from lower to higher, and offers logarithmic 
 A list can have repeat elements, whose order can be manipulated, and offers constant time insert/delete and linear search
 ```
 
+### [Exercise 11.7](https://github.com/ss-haze/cpp_primer/blob/main/ch11/11-07.cpp)
+
 ### [Exercise 11.8](https://github.com/ss-haze/cpp_primer/blob/main/ch11/11-08.cpp)
 
 ### [Exercise 11.9](https://github.com/ss-haze/cpp_primer/blob/main/ch11/11-09.cpp)
@@ -167,13 +169,13 @@ map<string, vector<int>> m;
 map<string, vector<int>>::const_iterator iter = m.find("item");
 ```
 
-#### Exercise 11.29:
+#### Exercise 11.29
 > What do upper_bound, lower_bound, and equal_range return when you pass them a key that is not in the container?
 ```
 They all return a position at which the key can be inserted while maintaining container order.
 ```
 
-### Exercise 11.30:
+### Exercise 11.30
 > Explain the meaning of the operand pos.first->second used in the output expression of the final program in this section.
 ```
 pos refers to a pair
@@ -190,7 +192,8 @@ pos.first->second refers to the value of this element
 ### Exercise 11.34 
 > What would happen if we used the subscript operator instead of find in the transform function?
 ```
-If the word was not an element in the map, the subscript operator would create an element in the map and then return its value, which in this case would be a value-initialized string i.e. the empty string.
+If the word was not an element in the map, the subscript operator would create an element in the map and then return its value,
+ which in this case would be a value-initialized string i.e. the empty string.
 ```
 
 
