@@ -2,8 +2,6 @@
 #include <vector>
 #include <string>
 
-class ConstStrBlob;
-
 class ConstStrBlobPtr
 {
   typedef std::vector<std::string>::size_type size_type;

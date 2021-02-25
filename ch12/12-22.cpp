@@ -7,7 +7,7 @@
 int main()
 {
 
-  const ConstStrBlob s{"hello", "there", "how", "are", "you"};
+  const StrBlob s{"hello", "there", "how", "are", "you"};
 
   auto iter = s.begin();
 
