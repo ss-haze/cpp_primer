@@ -72,7 +72,8 @@ r2 = q2;
 shared_ptr<int> p(new int(42)); 
 process(shared_ptr<int>(p));
 
-//call is correct. process parameter is a copy of the shared_ptr temp. In process, ptr counter is 2, and after ptr is destroyed, counter is back at 1, with p being the sole shared_ptr.
+//call is correct. process parameter is a copy of the shared_ptr temp. In process, ptr counter is 2, and after ptr is destroyed, 
+// counter is back at 1, with p being the sole shared_ptr.
 ```
 
 ### Exercise 12.11
@@ -167,8 +168,6 @@ std::string& deref() const
 // The above version, although terser than the one we have acutally used, is difficult to decipher.
 ```
 
-### [Exercise 12.21](https://github.com/ss-haze/cpp_primer/blob/main/ch12/12-21.cpp)
-
 ### [Exercise 12.22](https://github.com/ss-haze/cpp_primer/blob/main/ch12/12-22.cpp)
 
 ### [Exercise 12.23](https://github.com/ss-haze/cpp_primer/blob/main/ch12/12-23.cpp)
@@ -215,6 +214,8 @@ The use of set is better; it gives us a unique result for each word occurence pe
 ```
 
 ### [Exercise 12.32](https://github.com/ss-haze/cpp_primer/blob/main/ch12/12-32.cpp)
+
+### [Exercise 12.33](https://github.com/ss-haze/cpp_primer/blob/main/ch12/12-33.cpp)
 
 
 
