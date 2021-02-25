@@ -18,5 +18,5 @@ These answers were compiled using the g++ compiler and Visual Studio Community 2
   + [Chapter 10: Generic Algorithms](https://github.com/ss-haze/cpp_primer/tree/main/ch10)
   + [Chapter 11: Associative Containers](https://github.com/ss-haze/cpp_primer/tree/main/ch11)
   + [Chapter 12: Dynamic Memory](https://github.com/ss-haze/cpp_primer/tree/main/ch12)
-  * Part 3: Tools for Class Authors
+* Part 3: Tools for Class Authors
   + [Chapter 13: Copy Control](https://github.com/ss-haze/cpp_primer/tree/main/ch13)
