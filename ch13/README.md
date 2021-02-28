@@ -31,7 +31,7 @@ When we copy a StrBlobPtr, we copy the weak_ptr, which does not increase the cou
 Both StrBlobPtrs point to the same
 ```
 
-#### Exercise 13.4
+### Exercise 13.4
 > Assuming Point is a class type with a public copy constructor, identify each use of the copy constructor in this program fragment:
 ```c++
 Point global; 
@@ -44,7 +44,7 @@ Point foo_bar(Point arg) // use 1
 }
 ```
 
-#### Exercise 13.5
+### Exercise 13.5
 > Given the following sketch of a class, write a copy
 constructor that copies all the members. Your constructor should dynamically allocate a new string (§ 12.1.2, p. 458) and copy the object to which ps points, rather than copying ps itself.
 ```c++
@@ -134,7 +134,8 @@ class HasPtr
 A destructor is a member function with the name of the class prefixed by a tilde. It has neither a return value nor any parameters.
 
 The synthesised destructor destroys members of class type after the empty destructor body is executed.
-Like the copy constructor and copy assignment operator, the sythesised destructor may disallow certain objects of class type from being destroyed.
+Like the copy constructor and copy assignment operator, the sythesised destructor may disallow certain objects 
+of class type from being destroyed.
 
 A destructor is synthesised for any class that does not define its own destructor.
 ```
@@ -142,8 +143,8 @@ A destructor is synthesised for any class that does not define its own destructo
 ### Exercise 13.10
 > What happens when a StrBlob object is destroyed? What about a StrBlobPtr?
 ```
-When a StrBlob object is destroyed, the shared pointer member is destroyed by calling the share_ptr destructor, which decreases the shared pointer count. 
-If the count becomes zero, then the vector pointed by the smart pointer is also destroyed.
+When a StrBlob object is destroyed, the shared pointer member is destroyed by calling the share_ptr destructor, 
+which decreases the shared pointer count. If the count becomes zero, then the vector pointed by the smart pointer is also destroyed.
 
 When a StrBlobPtr is destroyed, the weak_ptr member is destroyed by calling the weak_ptr destructor. This does not affect the count 
 of the underlying shared_ptr, so the vector is unaffected.
@@ -243,8 +244,10 @@ f(b) will initialize s as a copy of a, so s.mysn == 2.
 f(c) will initialize s as a copy of a, so s.mysn == 3.
 ```
 
-Exercise 13.17
+### Exercise 13.17
 > Write versions of numbered and f corresponding to the previous three exercises and check whether you correctly predicted the output.
-#### [13.14 code](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-14.cpp) #### [13.15 code](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-15.cpp) #### [13.16 code](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-16.cpp) 
+##### [13.14 code](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-14.cpp) 
+#### [13.15 code](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-15.cpp) 
+##### [13.16 code](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-16.cpp) 
 
 
