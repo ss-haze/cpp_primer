@@ -457,7 +457,7 @@ what is the rank of each conversion in the following calls?
 ```
 
 ### Exercise 6.54
-> Write  a declaration for a function that takes two int parameters and returns an int, and declare a vector whose elements have his function pointer type.
+> Write  a declaration for a function that takes two int parameters and returns an int, and declare a vector whose elements have this function pointer type.
 
 ```c++
 
@@ -493,28 +493,3 @@ vector<decltype(func)*>v11;
 ### [Exercise 6.55](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-55.cpp)
 
 ### [Exercise 6.56](https://github.com/ss-haze/cpp_primer/blob/main/ch06/6-56.cpp)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
