@@ -248,7 +248,7 @@ f(c) will initialize s as a copy of a, so s.mysn == 3.
 ### Exercise 13.17
 > Write versions of numbered and f corresponding to the previous three exercises and check whether you correctly predicted the output.
 ##### [13.14 code](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-14.cpp) 
-#### [13.15 code](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-15.cpp) 
+##### [13.15 code](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-15.cpp) 
 ##### [13.16 code](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-16.cpp) 
 
 
