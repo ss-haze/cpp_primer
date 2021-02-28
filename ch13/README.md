@@ -90,7 +90,8 @@ If we assign one StrBlob to another, the count of the shared_ptr of the left Str
 and the shared_ptr count of the right StrBlob increases by one.
 Both StrBlobs point to the same vector<string>
 
-With StrBlobPtrs, both weak_ptrs will, after the assignment, hold the same address i.e. the shared_ptr value of the right hand size operand.
+With StrBlobPtrs, both weak_ptrs will, after the assignment, hold the same address 
+i.e. the shared_ptr value of the right hand size operand.
 ```
 
 ### Exercise 13.8
@@ -143,11 +144,11 @@ A destructor is synthesised for any class that does not define its own destructo
 ### Exercise 13.10
 > What happens when a StrBlob object is destroyed? What about a StrBlobPtr?
 ```
-When a StrBlob object is destroyed, the shared pointer member is destroyed by calling the share_ptr destructor, 
-which decreases the shared pointer count. If the count becomes zero, then the vector pointed by the smart pointer is also destroyed.
+When a StrBlob object is destroyed, the shared pointer member is destroyed by calling the share_ptr destructor, which 
+decreases the shared pointer count. If the count becomes zero, then the vector pointed by the smart pointer is also destroyed.
 
-When a StrBlobPtr is destroyed, the weak_ptr member is destroyed by calling the weak_ptr destructor. This does not affect the count 
-of the underlying shared_ptr, so the vector is unaffected.
+When a StrBlobPtr is destroyed, the weak_ptr member is destroyed by calling the weak_ptr destructor. This does not affect the 
+count of the underlying shared_ptr, so the vector is unaffected.
 ```
 
 ### Exercise 13.11: 
