@@ -251,4 +251,166 @@ f(c) will initialize s as a copy of a, so s.mysn == 3.
 ##### [13.15 code](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-15.cpp) 
 ##### [13.16 code](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-16.cpp) 
 
+### [Exercise 13.18](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-18.cpp)
+
+### Exercise 13.19
+> Does your Employee class need to define its own versions of the copy-control members? If so, why? If not, why not? Implement whatever copy-control members you think Employee needs.
+```
+It seems counterintuitive to copy employees, since each is assumed to be unique. 
+So best would be to disable the copy constructor and the assignment operator.
+```
+##### [13.19](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-19.cpp)
+
+### Exercise 13.20
+> Explain what happens when we copy, assign, or destroy objects of our TextQuery and QueryResult classes from § 12.3 (p. 484).
+```
+For TextQuery
+a) copy
+A TextQuery object has two members: a shared_ptr and a map<string, shared_ptr>
+The string copy constructor will be called for the map key.
+The copy contructor will memberwise copy the rhs members to the left-hand side.
+The shared_ptr counts for the two elements will increase by 1.
+
+b) assignment
+The string assignment operator will be called for the map key.
+The shared-ptr counts for the LHS operand will decrease by 1 and the counts for the RHS operand shared_ptrs will increment.
+If the LHS counts hit 0, they will delete their objects.
+
+
+c) destruction
+The shared_ptr counts for the object will decrease by one.
+The string destructor will be called for the map key.
+
+QueryResult objects have two shared_ptrs
+The above will happen when we copy, assign, destroy QueryResult objects
+```
+
+### Exercise 13.21
+> Do you think the TextQuery and QueryResult classes need to define their own versions of the copy-control members? If so, why? If not, why not? Implement whichever copy-control operations you think these classes require.
+```
+No. The classes use shared_ptrs, and the synthesised copy-control constructors and destructor handle all operations.
+```
+
+### [13.22](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-22.cpp)
+
+
+### Exercise 13.23
+> Compare the copy-control members that you wrote for the solutions to the previous section’s exercises to the code presented here. Be sure you understand the differences, if any, between your code and ours.
+```
+see 13.22
+```
+
+### Exercise 13.24
+> What would happen if the version of HasPtr in this section didn’t define a destructor? What if HasPtr didn’t define the copy constructor?
+```
+If no defined destructor, the synthesised destructor would not delete the string pointer ps.
+If no defined copy constructor, the synthesised constructor would copy the string pointer.
+```
+
+### Exercise 13.25
+> Assume we want to define a version of StrBlob that acts like a value. Also assume that we want to continue to use a shared_ptr so that our StrBlobPtr class can still use a weak_ptr to the vector. Your revised class will need a copy constructor and copy-assignment operator but will not need a destructor. Explain what the copy constructor and copy assignment operators must do. Explain why the class does not need a destructor.
+```
+The copy constructor and copy assignment operator must dynamically allocate memory and create a copy of the vector<string> container.
+A destructor need not be defined, as all dynamic memory is dealt with by the smart pointer.
+```
+
+### [13.26](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-26.h)
+
+### [13.27](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-27.cpp)
+
+### [13.28](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-28.cpp)
+
+### Exercise 13.29
+> Explain why the calls to swap inside swap(HasPtr&, HasPtr&) do not cause a recursion loop.
+```
+The calls inside the swap function invoke the stl swap function, not our user-defined HasPtr function.
+```
+
+### Exercise 13.32
+> Would the pointerlike version of HasPtr benefit from defining a swap function? If so, what is the benefit? If not, why not?
+```
+No. The stl swap function can handle the swapping of pointers.
+```
+
+### Exercise 13.33
+> Why is the parameter to the save and remove members of Message a Folder&? Why didn’t we define that parameter as Folder? Or const Folder&?
+```
+We use a reference because we wish to make changes to the parameter.
+```
+
+### [13.34](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-34.cpp)
+
+### Exercise 13.35
+> What would happen if Message used the synthesized versions of the copy-control members?
+```
+The synthesised constructor would create or a new message with the same pointers to the same folders, 
+but the corresponing folders would not have a pointer to this new message.
+
+The sythesised assignment operator would copy the rhs message string and set into the lhs message, 
+but again, the lhs message would not have the required pointers in the required folders.
+```
+
+### Exercise 13.36
+> Design and implement the corresponding Folder class. That class should hold a set that points to the Messages in that Folder.
+``` 
+see 13.34
+```
+
+### [13.37](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-37.cpp)
+
+### Exercise 13.38
+> We did not use copy and swap to define the Message assignment operator. Why do you suppose this is so?
+```
+This would be much more resource intensive than the existing method. We would be:
+a) making a copy of the rhs
+b) removing both the lhs and rhs from their folders
+c) swapping contents
+d) reading both lhs and rhs to their folders
+This involves one copy, two removes, one swap, and two insertions.
+The present method involves one remove, one partial swap and one addition.
+```
+
+### Exercise 13.41
+> Why did we use postfix increment in the call to construct inside push_back? What would happen if it used the prefix increment?
+```
+We construct at iterator location first_free, which points to the first element in the array, then increment.
+If we incremented then constructed, we would be leaving gaps in the array.
+```
+### Exercise 13.42
+> Test your StrVec class by using it in in takes the place call an to it used the prefix of the vector<string> in your TextQuery and QueryResult classes (§ 12.3, p. 484).
+##### [QueryClasses.h](https://github.com/ss-haze/cpp_primer/blob/main/ch13/TextQuery.h)
+##### [QueryClasses.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/TextQuery.cpp)
+##### [StrVec.h](https://github.com/ss-haze/cpp_primer/blob/main/ch13/TextQueryResult.h)
+##### [StrVec.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/TextQueryResult.cpp)
+##### [13-42.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-42.cpp)
+
+### Exercise 13.43
+> Rewrite the free member to use for_each and a lambda (§ 10.3.2, p. 388) in place of the for loop to destroy the elements. Which implementation do you prefer, and why?
+```c++
+void StrVec::free()
+{
+  if (elements)
+  {
+    for_each (elements, first_free, [this] (const string& s) { alloc.destroy(&s); }
+    alloc.deallocate(elements, cap - elements);
+  }
+}
+//This version is terser and clearer
+```
+
+### [13-44.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-44.cpp)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

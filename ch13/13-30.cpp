@@ -32,9 +32,9 @@ public:
     return *this;
   }
 
-  HasPtr &operator = (HasPtr rhs)
+  HasPtr &operator=(HasPtr rhs)
   {
-    swap (*this, rhs);
+    swap(*this, rhs);
     return *this;
   }
 
@@ -53,6 +53,7 @@ inline void swap(HasPtr &lhs, HasPtr &rhs)
   using std::swap;
   swap(lhs.ps, rhs.ps);
   swap(lhs.i, rhs.i);
+  std::cout << "Swap function invoked\n";
 }
 
 int main()

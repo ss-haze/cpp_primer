@@ -1,5 +1,7 @@
 #include <string>
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
 class HasPtr
 {
@@ -32,13 +34,12 @@ public:
     return *this;
   }
 
-  HasPtr &operator = (HasPtr rhs)
+  inline bool operator<(const HasPtr &rhs) const
   {
-    swap (*this, rhs);
-    return *this;
+    return *ps < *rhs.ps;
   }
 
-  void print()
+  inline void print() const
   {
     std::cout << *ps << " " << i << std::endl;
   }
@@ -53,21 +54,23 @@ inline void swap(HasPtr &lhs, HasPtr &rhs)
   using std::swap;
   swap(lhs.ps, rhs.ps);
   swap(lhs.i, rhs.i);
+  std::cout << "Swap function invoked\n";
 }
 
 int main()
 {
   HasPtr a("hello", 5);
-
   HasPtr b("bye", 10);
+  HasPtr c("yes", 3);
+  std::vector<HasPtr> vec{c, a, b};
 
-  a.print();
-  b.print();
+  for (const auto &item : vec)
+    item.print();
 
-  swap(a, b);
+  std::sort(vec.begin(), vec.end());
 
-  a.print();
-  b.print();
+  for (const auto &item : vec)
+    item.print();
 
   return 0;
 }
