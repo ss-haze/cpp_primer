@@ -291,7 +291,7 @@ The above will happen when we copy, assign, destroy QueryResult objects
 No. The classes use shared_ptrs, and the synthesised copy-control constructors and destructor handle all operations.
 ```
 
-### [13.22](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-22.cpp)
+### [Exercise 13.22](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-22.cpp)
 
 
 ### Exercise 13.23
@@ -314,11 +314,11 @@ The copy constructor and copy assignment operator must dynamically allocate memo
 A destructor need not be defined, as all dynamic memory is dealt with by the smart pointer.
 ```
 
-### [13.26](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-26.h)
+### [Exercise 13.26](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-26.h)
 
-### [13.27](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-27.cpp)
+### [Exercise 13.27](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-27.cpp)
 
-### [13.28](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-28.cpp)
+### [Exercise 13.28](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-28.cpp)
 
 ### Exercise 13.29
 > Explain why the calls to swap inside swap(HasPtr&, HasPtr&) do not cause a recursion loop.
@@ -338,7 +338,7 @@ No. The stl swap function can handle the swapping of pointers.
 We use a reference because we wish to make changes to the parameter.
 ```
 
-### [13.34](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-34.cpp)
+### [Exercise 13.34](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-34.cpp)
 
 ### Exercise 13.35
 > What would happen if Message used the synthesized versions of the copy-control members?
@@ -356,7 +356,7 @@ but again, the lhs message would not have the required pointers in the required 
 see 13.34
 ```
 
-### [13.37](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-37.cpp)
+### [Exercise 13.37](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-37.cpp)
 
 ### Exercise 13.38
 > We did not use copy and swap to define the Message assignment operator. Why do you suppose this is so?
@@ -398,7 +398,7 @@ void StrVec::free()
 //This version is terser and clearer
 ```
 
-### [13-44.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-44.cpp)
+### [Exercise 13-44](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-44.cpp)
 
 
 
