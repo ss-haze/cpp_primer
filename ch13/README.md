@@ -310,7 +310,8 @@ If no defined copy constructor, the synthesised constructor would copy the strin
 ### Exercise 13.25
 > Assume we want to define a version of StrBlob that acts like a value. Also assume that we want to continue to use a shared_ptr so that our StrBlobPtr class can still use a weak_ptr to the vector. Your revised class will need a copy constructor and copy-assignment operator but will not need a destructor. Explain what the copy constructor and copy assignment operators must do. Explain why the class does not need a destructor.
 ```
-The copy constructor and copy assignment operator must dynamically allocate memory and create a copy of the vector<string> container.
+The copy constructor and copy assignment operator must dynamically allocate memory and create a copy of the 
+vector<string> container.
 A destructor need not be defined, as all dynamic memory is dealt with by the smart pointer.
 ```
 
@@ -436,9 +437,12 @@ int f();
 ### Exercise 13-49
 > Add a move constructor and move-assignment operator to your StrVec, String, and Message classes.
 
-##### [StrVec_move.h](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.h)    [StrVec_move.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.cpp)
-##### [String_move.h](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.h)    [StrVec_move.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/String_move.cpp)
-##### [Message_move.h](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.h)    [StrVec_move.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/Message_move.cpp)
+##### [StrVec_move.h](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.h)    
+##### [StrVec_move.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.cpp)
+##### [String_move.h](https://github.com/ss-haze/cpp_primer/blob/main/ch13/String_move.h)    
+##### [String_move.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/String_move.cpp)
+##### [Message_move.h](https://github.com/ss-haze/cpp_primer/blob/main/ch13/Message_move.h)    
+##### [Message_move.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/Message_move.cpp)
 
 ### [Exercise 13-50](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-50.cpp)
 
