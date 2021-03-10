@@ -1,6 +1,7 @@
 #include <memory>
 #include <iostream>
 #include <algorithm>
+#include <vector>
 
 class String
 {
@@ -100,6 +101,7 @@ String::String(const String &rhs)
   elements = newdata.first;
   cap = newdata.second;
   first_free = elements + (rhs.size());
+  std::cout << "copy constructor used\n";
 }
 
 String &String::operator=(const String &rhs)
@@ -109,26 +111,23 @@ String &String::operator=(const String &rhs)
   elements = newdata.first;
   cap = newdata.second;
   first_free = elements + (rhs.size());
+  std::cout << "copy assignment operator used\n";
   return *this;
 }
 int main()
 {
-  const char *c1 = "Hello!", *c2 = "Goodbye!";
-
-  String s1(c1);
-  s1.print();
-  std::cout << std::endl;
-
+  const char *c = "Bye!";
+  String s0(c);
+  String s1("hello");
   String s2(s1);
-  s2.print();
-  std::cout << std::endl;
+  String s3 = s2;
+  String s4;
 
-  String s3(c2);
-  s3.print();
-  std::cout << std::endl;
-
-  s3 = s2;
-  s3.print();
-
+  std::vector<String> v;
+  v.push_back(s0);
+  v.push_back(s1);
+  v.push_back(s2);
+  v.push_back(s3);
+  v.push_back(s4);
   return 0;
 }

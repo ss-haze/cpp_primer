@@ -1,42 +1,4 @@
-#include <memory>
-#include <iostream>
-#include <algorithm>
-
-class String
-{
-public:
-  String()
-      : elements(nullptr),
-        first_free(nullptr),
-        cap(nullptr)
-  {
-  }
-  String(const char *c);
-  String(const String &rhs);
-  String &operator=(const String &rhs);
-  ~String();
-
-  //methods
-  void push_back(const char &c);
-  size_t size() const { return first_free - elements; }
-  size_t capacity() const { return cap - elements; }
-
-  void print()
-  {
-    for (auto iter = elements; iter != first_free; ++iter)
-      std::cout << *iter;
-  }
-
-private:
-  void free();
-  void check_n_alloc();
-  void reallocate();
-  std::pair<char *, char *> alloc_n_copy(const char *b, const char *e);
-  std::allocator<char> alloc;
-  char *elements;
-  char *first_free;
-  char *cap;
-};
+#include "String_move.h"
 
 void String::reallocate()
 {
@@ -100,6 +62,30 @@ String::String(const String &rhs)
   elements = newdata.first;
   cap = newdata.second;
   first_free = elements + (rhs.size());
+  std::cout << "copy constructor used\n";
+}
+
+String::String(String &&rhs) noexcept
+    : elements(rhs.elements),
+      first_free(rhs.first_free),
+      cap(rhs.cap)
+{
+  rhs.elements = rhs.cap = rhs.first_free = nullptr;
+  std::cout << "Move constructor invoked\n";
+}
+
+String &String::operator=(String &&rhs) noexcept
+{
+  if (this != &rhs)
+  {
+    free();
+    elements = rhs.elements;
+    first_free = rhs.first_free;
+    cap = rhs.cap;
+    rhs.elements = rhs.cap = rhs.first_free = nullptr;
+  }
+  std::cout << "Move assignment operator invoked\n";
+  return *this;
 }
 
 String &String::operator=(const String &rhs)
@@ -109,26 +95,6 @@ String &String::operator=(const String &rhs)
   elements = newdata.first;
   cap = newdata.second;
   first_free = elements + (rhs.size());
+  std::cout << "copy assignment operator used\n";
   return *this;
-}
-int main()
-{
-  const char *c1 = "Hello!", *c2 = "Goodbye!";
-
-  String s1(c1);
-  s1.print();
-  std::cout << std::endl;
-
-  String s2(s1);
-  s2.print();
-  std::cout << std::endl;
-
-  String s3(c2);
-  s3.print();
-  std::cout << std::endl;
-
-  s3 = s2;
-  s3.print();
-
-  return 0;
 }

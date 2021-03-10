@@ -100,6 +100,7 @@ String::String(const String &rhs)
   elements = newdata.first;
   cap = newdata.second;
   first_free = elements + (rhs.size());
+  std::cout << "copy constructor used\n";
 }
 
 String &String::operator=(const String &rhs)
@@ -109,6 +110,7 @@ String &String::operator=(const String &rhs)
   elements = newdata.first;
   cap = newdata.second;
   first_free = elements + (rhs.size());
+  std::cout << "copy assignment operator used\n";
   return *this;
 }
 int main()

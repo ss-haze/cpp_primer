@@ -400,6 +400,118 @@ void StrVec::free()
 
 ### [Exercise 13-44](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-44.cpp)
 
+### Exercise 13.45
+> Distinguish between an rvalue reference and an lvalue reference.
+```
+An lvaue reference refers to an lvalue, which is a persistent value. 
+The lvalue reference refers to the object's identity.
+
+An rvalue reference refers to an rvalue, which is destroyed once the expression in which it appears completes. 
+The rvalue reference refers to the object's value.
+```
+
+### Exercise 13.46
+> Which kind of reference can be bound to the following initializers?
+```c++
+int f();  
+ vector<int> vi(100);
+
+ int? r1 = f(); 
+ //rvalue
+
+ int? r2 = vi[0]; 
+ //lvalue
+
+ int? r3 = r1; 
+ //lvalue
+
+ int? r4 = vi[0] * f();
+ //rvalue
+ ```
+
+ ### [Exercise 13-47](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-47.cpp)
+
+ ### [Exercise 13-48](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-48.cpp)
+
+### Exercise 13-49
+> Add a move constructor and move-assignment operator to your StrVec, String, and Message classes.
+
+##### [StrVec_move.h](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.h)   ##### [StrVec_move.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.cpp)
+##### [String_move.h](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.h)   ##### [StrVec_move.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/String_move.cpp)
+##### [Message_move.h](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.h)   ##### [StrVec_move.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/Message_move.cpp)
+
+### [Exercise 13-50](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-50.cpp)
+
+### Exercise 13-51
+> Although unique_ptrs cannot be copied, in § 12.1.5 (p. 471) we wrote a clone function that returned a unique_ptr by value. Explain why that function is legal and how it works.
+```
+The returned unique pointer was about to be destroyed, therefore the function returns an rvalue, which is copied.
+A copied rvalue will invoke the move copy constructor or the move assignment operator. The resources of the unique_ptr
+are not copied but moved to the newly constructed object.
+```
+
+### Exercise 13-52
+> Explain in detail what happens in the assignments of the HasPtr objects on page 541. In particular, describe step by step what happens to values of hp, hp2, and of the rhs parameter in the HasPtr assignment operator.
+```
+The HasPtr assignment operator is as follows:
+HasPtr& operator=(HasPtr rhs)
+The rhs parameter is a copy of the argument, so will invoke either the copy constructor or the move contructor.
+
+hp = hp2; 
+hp2 is an lvalue. The rhs parameter in the HasPtr assignment operator will therefore initialize using the copy constructor.
+The assignment operator expression will act function like a copy assignment expression.
+
+hp = std::move(hp2);
+hp2 is an rlvalue. The rhs parameter in the HasPtr assignment operator will therefore initialize using the move constructor.
+The assignment operator expression will function like a move assignment expression.
+```
+
+### [Exercise 13-53](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-53.cpp)
+
+### Exercise 13-54
+> What would happen if we defined a HasPtr move-assignment operator but did not change the copy-and-swap operator? Write code to test your answer.
+```
+We get a function matching error, since the compiler has no way of choosing between the two operators:
+More than one operator "=" matches these operands ...
+```
+
+### Exercise 13-53
+> Add an rvalue reference version of push_back to your StrBlob.
+```c++
+//lvalue reference
+void push_back(const std::string &s) { data->push_back(s); }
+
+//rvalue reference
+void push_back (const std::string &&s) {data->push_back(std::move(s)); }
+```
+
+### Exercise 13-56
+> What would happen if we defined sorted as:
+```c++
+Foo Foo::sorted() const & 
+{     
+  Foo ret(*this);     
+  return ret.sorted();
+}
+
+// ret isn lvalue, so we would be calling the function sorted() again i.e. we would
+// have created a continuously recurring loop
+```
+
+### Exercise 13-57
+> What if we defined sorted as:
+```c++
+Foo Foo::sorted() const & 
+{ 
+  return Foo(*this).sorted();
+}
+// Foo(*this) will create an rvalue, so the rvalue sorted method will be invoked
+```
+
+
+
+
+
 
 
 
