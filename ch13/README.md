@@ -436,9 +436,9 @@ int f();
 ### Exercise 13-49
 > Add a move constructor and move-assignment operator to your StrVec, String, and Message classes.
 
-##### [StrVec_move.h](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.h)   ##### [StrVec_move.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.cpp)
-##### [String_move.h](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.h)   ##### [StrVec_move.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/String_move.cpp)
-##### [Message_move.h](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.h)   ##### [StrVec_move.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/Message_move.cpp)
+##### [StrVec_move.h](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.h)    [StrVec_move.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.cpp)
+##### [String_move.h](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.h)    [StrVec_move.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/String_move.cpp)
+##### [Message_move.h](https://github.com/ss-haze/cpp_primer/blob/main/ch13/StrVec_move.h)    [StrVec_move.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch13/Message_move.cpp)
 
 ### [Exercise 13-50](https://github.com/ss-haze/cpp_primer/blob/main/ch13/13-50.cpp)
 
