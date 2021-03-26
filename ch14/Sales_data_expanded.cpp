@@ -1,4 +1,4 @@
-#include "sales_data.h"
+#include "Sales_data_expanded.h"
 
 Sales_data &Sales_data::operator+=(const Sales_data &rhs)
 {
@@ -11,6 +11,20 @@ Sales_data operator+(const Sales_data &lhs, const Sales_data &rhs)
 {
   Sales_data sum = lhs;
   sum += rhs;
+  return sum;
+}
+
+Sales_data &Sales_data::operator-=(const Sales_data &rhs)
+{
+  units_sold -= rhs.units_sold;
+  revenue -= rhs.revenue;
+  return *this;
+}
+
+Sales_data operator-(const Sales_data &lhs, const Sales_data &rhs)
+{
+  Sales_data sum = lhs;
+  sum -= rhs;
   return sum;
 }
 
@@ -37,14 +51,4 @@ std::ostream &operator<<(std::ostream &os, const Sales_data &item)
 inline double Sales_data::avg_price() const
 {
   return units_sold ? revenue / units_sold : 0;
-}
-
-int main()
-{
-  Sales_data item1;
-
-  std::cin >> item1;
-  std::cout << item1;
-
-  return 0;
 }

@@ -1,16 +1,18 @@
-#include "sales_data.h"
+#include "14-21-sales_data.h"
 
 Sales_data &Sales_data::operator+=(const Sales_data &rhs)
 {
-  units_sold += rhs.units_sold;
-  revenue += rhs.revenue;
+  *this = *this + rhs;
   return *this;
 }
+
+// If operator+= calls operator+, then both operator functions use a temporary Sales_data object (sum), which is less efficient than our present system of having operator+ call oerator+=
 
 Sales_data operator+(const Sales_data &lhs, const Sales_data &rhs)
 {
   Sales_data sum = lhs;
-  sum += rhs;
+  sum.units_sold = lhs.units_sold + rhs.units_sold;
+  sum.revenue = lhs.revenue + rhs.revenue;
   return sum;
 }
 
