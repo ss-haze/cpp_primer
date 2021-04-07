@@ -144,7 +144,7 @@ The class consists of threes strings and and a double. It does not make sense to
 ### Exercise 14.17
 > Should the class you chose for exercise 7.40 from § 7.5.1 (p. 291) define the equality operators? If so, implement them. If not, explain why not.
 ```
-Yes. See ##### [14-05.cpp](https://github.com/ss-haze/cpp_primer/blob/main/ch14/14-05.cpp)
+Yes. See 14-05.cpp
 ```
 
 ### Exercise 14.18
@@ -302,7 +302,8 @@ transform(vi.begin(), vi.end(), vi.begin(), bind(multiplies<int>(), _1, 2));
 ### Exercise 14.46
 > Explain whether defining these Sales_data conversion operators is a good idea and whether they should be explicit.
 ```
-There is no logical reason for applying these conversions (why should a Sales_data item be a string?). Using explicit will avoid any unwanted conversion results.
+There is no logical reason for applying these conversions (why should a Sales_data item be a string?). 
+Using explicit will avoid any unwanted conversion results.
 ```
 
 ### Exercise 14.47
