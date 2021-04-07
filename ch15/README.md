@@ -8,7 +8,7 @@ A virtual member is a class function that a derived class can override. When  we
 A protected member can be accessed by one of its derived classes, whereas a private member cannot be.
 ```
 
-### [Exercise 15-03](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-03.cpp)
+### [Exercise 15.3](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-03.cpp)
 
 ### Exercise 15.4
 > Which of the following declarations, if any, are incorrect? Explain why.
@@ -25,7 +25,7 @@ class Base { ... };
 //Illegal; do not need specifier on class declaration.
 ```
 
-### [Exercise 15-05](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-05.cpp)
+### [Exercise 15.5](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-05.cpp)
 
 
 ### Exercise 15.6
@@ -34,7 +34,7 @@ class Base { ... };
 see 15.5
 ```
 
-### [Exercise 15-07](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-07.cpp)
+### [Exercise 15.7](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-07.cpp)
 
 ### Exercise 15.8
 > Define static type and dynamic type. 
@@ -68,7 +68,7 @@ ifstream is a derived class, whose base class is istream. The read function has 
 If we pass an ifstream argument to the function, the parameter will be dynamically bound to the argument type.
 ```
 
-### [Exercise 15-11](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-11.cpp)
+### [Exercise 15.11](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-11.cpp)
 
 ### Exercise 15.12
 > Is it ever useful to declare a member function as both override and final? Why or why not?
@@ -126,7 +126,7 @@ base::print() run time
 derived::print() run time
 ```
 
-### [Exercise 15-15](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-15.cpp)
+### [Exercise 15.15](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-15.cpp)
 
 ### Exercise 15.16
 > Rewrite the class representing a limited discount strategy, which you wrote for the exercises in § 15.2.2 (p. 601), to inherit from Disc_quote.

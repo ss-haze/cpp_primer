@@ -67,7 +67,7 @@ call operator. Must be member.
 ### Exercise 14.6
 > Define an output operator for your Sales_data class.
 ```
-see 14-2
+see 14.2
 ```
 
 ### Exercise 14.7
