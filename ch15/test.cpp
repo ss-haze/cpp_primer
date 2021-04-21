@@ -1,58 +1,56 @@
-#include <iostream>
 #include <string>
+#include <memory>
+#include <iostream>
 
-class Base
+using std::ostream;
+using std::shared_ptr;
+using std::string;
+
+class QueryResult;
+
+class Query_base
 {
-public:
-  Base() = default;
-  Base(int x_in, int y_in) : x(x_in), y(y_in) {}
-
-  void print()
-  {
-    std::cout << x << " " << y << " " << z << " "
-              << "base print called\n";
-  }
-  virtual void vprint() { std::cout << "base vprint called\n"; }
-
-  virtual void tprint() { std::cout << "tprint in base called\n"; }
-
-private:
-  int x = 50;
+  friend class Query;
 
 protected:
-  int y = 50;
-
-public:
-  int z = 500;
+  using line_no = TextQuery::line_no;
+  virtual ~Query_base() = default;
+  virtual QueryResult eval(const TextQuery &) const = 0;
+  virtual string rep() const = 0;
 };
 
-class Derived : public Base
+class Query
 {
-public:
-  Derived() = default;
-  Derived(int d) : dd(d) {}
+  friend Query operator~(const Query &);
+  friend Query operator|(const Query &, const Query &);
+  friend Query operator&(const Query &, const Query &);
 
-  void vprint() override
-  {
-    std::cout << "Derived vprint called\n";
-  }
+public:
+  Query(const string &);
+
+  QueryResult eval(const TextQuery &t const) { return q->eval(t); }
+  string rep() const { return q->rep(); }
 
 private:
-  int dd;
+  Query(shared_ptr<Query_base> query)
+      : q(query) {}
+
+  shared_ptr<Query_base> q;
 };
 
-void tester(Base *basep)
+ostream &operator<<(ostream os, const Query &query)
 {
-  basep->Base::vprint();
+  return os << query.rep();
 }
 
-main()
+class WordQuery : public Query_base
 {
-  Derived d(10);
+  friend class Query;
+  WordQuery(string &s)
+      : query_word(s) {}
 
-  tester(&d);
-  Base b;
-  tester(&b);
+  QueryResult eval(const TextQuery &t const) { return t.query(query_word); }
+  string rep() const { return query_word; }
 
-  return 0;
-}
+  string query_word;
+};

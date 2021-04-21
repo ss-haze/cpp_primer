@@ -16,7 +16,7 @@ int main()
     auto iter = word_count.insert(std::make_pair(word, 1));
     if (!iter.second)
       ++iter.first->second;
-    //This method is longer but clearer han the subscript method,
+    //This method is longer but clearer than the subscript method,
     // where it is difficult to see
     // that a key is created if none is already present.
   }

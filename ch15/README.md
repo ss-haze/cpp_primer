@@ -142,6 +142,95 @@ object of abstract class type "Disc_quote" is not allowed:
 -- function "Disc_quote::net_price" is a pure virtual function
 ```
 
+### Exercise 15.18
+> Given the classes from page 612 and page 613, and assuming each object has the type specified in the comments, determine which of these assignments are legal. Explain why those that are illegal aren’t allowed:
+```
+Base *p = &d1;  //d1 has type Pub_Derv
+legal
+
+p = &d2;   //d2 has type Priv_Derv 
+illegal
+
+p = &d3;   //d3 has type Prot_Derv
+illegal
+
+p = &dd1;  //dd1 has type Derived_from_Public
+legal 
+
+p = &dd2;  //dd2 has type Derived_from_Private
+illegal
+
+p = &dd3; //dd3 has type Derived_from_Protected
+illegal
+```
+
+### Exercise 15.19
+> Assume that each of the classes from page 612 and page 613 has a member function of the form:
+void memfcn(Base &b) { b = *this; }
+For each class, determine whether this function would be legal.
+```
+Legal for d1, d2, d3 (type Pub_Derv, Priv_Derv, Prot_Derv)
+
+Legal for dd1, dd3 (type Derived_from_Public, Derived_from_Protected)
+
+Illegal for dd2 (type Derived_from_Private)
+```
+
+### [Exercise 15.20](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-20.cpp)
+
+### [Exercise 15.21](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-21.cpp)
+
+### Exercise 15.22
+> For the class you chose in the previous exercise, identify some of the likely virtual functions as well as public and protected members.
+```
+see 15.21
+```
+
+### Exercise 15.23
+> Assuming class D1 on page 620 had intended to override its inherited fcn function, how would you fix that class? Assuming you fixed the class so that fcn matched the definition in Base, how would the calls in that section be resolved?
+```
+D1 can override its inherited fcn function by renaming it to int fcn();
+
+bp1->fcn(); // virtual call, will call Base::fcn at run time (same call)
+bp2->fcn(); // virtual call, will call D1::fcn at run time (this is a change)
+bp3->fcn(); // virtual call, will call D2::fcn at run time (same call)
+```
+
+### Exercise 15.24
+> What kinds of classes need a virtual destructor? What operations must a virtual destructor perform?
+```
+Virtual destructors are needed by base classes. 
+The destructor must free dynamically allocated resources in its heirachy. 
+```
+
+### Exercise 15.25
+> Why did we define a default constructor for Disc_quote? What effect, if any, would removing that constructor have on the behavior of Bulk_quote?
+```
+We need a default constructor because we defined a constructor taking 4 parameters.
+If we removed the default constructor, we could not construct derived objects that were default initialized.
+```
+### [Exercise 15.26](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-26.cpp)
+
+### [Exercise 15.27](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-27.cpp)
+
+### [Exercise 15.28](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-28.cpp)
+
+### [Exercise 15.29](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-29.cpp)
+
+### [Exercise 15.30](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-30.cpp)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
