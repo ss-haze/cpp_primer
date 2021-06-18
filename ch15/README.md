@@ -219,6 +219,54 @@ If we removed the default constructor, we could not construct derived objects th
 
 ### [Exercise 15.30](https://github.com/ss-haze/cpp_primer/blob/main/ch15/15-30.cpp)
 
+### Exercise 15.31
+> Given that s1, s2, s3, and s4 are all strings, determine what objects are created in the following expressions:
+```
+(a) Query(s1) | Query(s2) & ~ Query(s3); 
+3 WordQuery objects. 
+1 NotQuery object. 
+1 orQuery object.
+1 AndQuery object. 
+
+(b) Query(s1) | (Query(s2) & ~ Query(s3));
+3 WordQuery objects. 
+1 NotQuery object. 
+1 orQuery object.
+1 AndQuery object. 
+
+(c) (Query(s1) & (Query(s2)) | (Query(s3) & Query(s4)));
+4 WordQuery objects.
+2 AndQuery objects.
+1 orQuery object.
+```
+
+### Exercise 15.32
+> What happens when an object of type Query is copied, moved, assigned, and destroyed?
+```
+Query has a shared pointer p of type Query_Base.
+
+When copied, the shared pointer count increases by 1.
+
+When moved, the count of the shared pointer in the new object is 1, 
+and the shared pointer count of the moved object decreases by one.
+
+When copy assigned, we have the same result as copying.
+
+When move assigned, we have the same result as moving.
+
+When destroying, the shared pointer count decrements by one.
+If the count hits zero, the shared pointer destructor will delete the object.
+```
+
+### Exercise 15.33
+> What about objects of type Query_base?
+```
+Query_base is an abstract class. Query holds a pointer to Query_base.
+Any operations on this pointer will affect the underlying object to which this pointer points.
+
+
+
+
 
 
 

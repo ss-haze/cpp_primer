@@ -21,13 +21,11 @@ int main()
 {
   cout << compare(4, 5) << endl;
   cout << compare(5, 4) << endl;
-  cout << compare(4, 4) << endl
-       << endl;
+  cout << compare(4, 4) << endl  << endl;
 
   string s1("yes"), s2("no");
   cout << compare(s1, s2) << endl;
   cout << compare(s2, s1) << endl;
-  cout << compare(s1, s1) << endl
-       << endl;
+  cout << compare(s1, s1) << endl << endl;
   return 0;
 }

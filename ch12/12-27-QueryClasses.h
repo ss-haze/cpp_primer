@@ -7,15 +7,11 @@
 #include <iostream>
 #include <memory>
 
-using std::cin;
-using std::cout;
-using std::ifstream;
-using std::istringstream;
-using std::map;
-using std::set;
+using std::cin; using std::cout;
+using std::ifstream; using std::istringstream;
+using std::map; using std::set;
 using std::shared_ptr;
-using std::string;
-using std::vector;
+using std::string; using std::vector;
 
 class QueryResult;
 
@@ -27,8 +23,7 @@ public:
   QueryResult query(const string &s) const;
 
 private:
-  shared_ptr<vector<string>>
-      text;
+  shared_ptr<vector<string>> text;
   map<string, shared_ptr<set<line_num_type>>> mp;
 };
 
@@ -41,8 +36,7 @@ public:
       : s(str),
         line_ptr(v),
         set_ptr(lnt)
-  {
-  }
+  {}
 
 private:
   const string s;

@@ -16,6 +16,8 @@ int compare(const T &v1, const T &v2)
   return 0;
 }
 
+//the following code does not compile, since operator < is not defined for Sales_data objects
+
 int main()
 {
   Sales_data item1("Item1", 50, 10.0), item2("Item2", 20, 5.5);

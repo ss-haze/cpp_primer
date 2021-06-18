@@ -23,9 +23,9 @@ T match(const T &start, const T &end, const U &item)
 }
 
 template <typename T, typename U>
-void print_result(const T &iter, const U &cont)
+void print_result(const T &iter, const U &container)
 {
-  if (iter == cont.end())
+  if (iter == container.end())
     cout << "The item was not found\n";
   else
     cout << "The item was found\n";
