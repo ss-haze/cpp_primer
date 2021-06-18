@@ -31,7 +31,7 @@ Most of those iterators do not have the < operator.
 A function template is a blueprint for generating type-specific versions of that function.
 
 A class template is a blueprint for generating classes. 
-Class templates differ from function templates in that the compiler can't deduce the template parameter type(s) for a class template. 
+Unlike function templates, the compiler can't deduce the template parameter type(s) for a class template. 
 Instead, to use a class template we must supply additional information inside angle brackets following the template’s name.
 ```
 ### Exercise 16.10
