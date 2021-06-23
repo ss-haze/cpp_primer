@@ -269,4 +269,161 @@ types are not the same. No instantiation.
 f2 instantiated as f2(*int, const *int)
 ```
 
+### Exercise 16.37
+> The library max function has two function parameters and returns the larger of its arguments. This function has one template type parameter. Could you call max passing it an int and a double? If so, how? If not, why not?
+```c++
+int x=5; 
+double y=5.5;
+cout << max<double>(x, y);
+```
+
+### Exercise 16.38
+> When we call make_shared, we have to provide an explicit template argument. Explain why that argument is needed and how it is used.
+```
+The argument specifies the return type from make_shared, allowing the compiler to allocate the relevant memmory.
+```
+
+### Exercise 16.39
+> Use an explicit template argument to make it sensible to pass two string literals to the original version of compare from § 16.1.1.
+```c++
+compare<string>("first", "second");
+```
+
+### Exercise 16.40
+> Is the following function legal? If not, why not? If it is legal, what, if any, are the restrictions on the argument type(s) that can be passed, and what is the return type?
+```c++
+template <typename It> auto fcn3(It beg, It end) -> decltype(*beg + 0) 
+{  // process the range   
+return *beg; // return a copy of an element from the range 
+}
+/*
+Legal. But beg must point to an arithmetic type, since we use decltype on (*beg + 0),
+and that expresssion will yield a reference to int or to a type to which int can be promoted.
+*/
+```
+
+### [Exercise 16.41](https://github.com/ss-haze/cpp_primer/blob/main/ch16/16-41.cpp)
+
+### Exercise 16.42
+> Determine the type of T and of val in each of the following calls:
+```c++
+template <typename T> void g(T&& val); 
+int i = 0; 
+const int ci = i;
+
+(a) g(i);
+i is an l-value, so T has type &int. 
+Val has type && &int, which collapses to &int.
+
+(b) g(ci);
+ci is a const l-value, so T has type const & int. 
+Val has type && const & int, which collapsees to const & int.
+
+(c) g(i * ci);
+i*ci produces an r-value, so T has type int.
+Val therefore has type && int.
+```
+
+### Exercise 16.43
+> Using the function defined in the previous exercise, what would the template parameter of g be if we called g(i = ci)?
+```
+i is an int, so T has type & int. Val has type && & int, which collapses to &int
+```
+
+### Exercise 16.44
+> Using the same three calls as in the first exercise, determine the types for T if g’s function parameter is declared as T (not T&&). What if g’s function parameter is const T&?
+```
+template <typename T> void g(T val); 
+int i = 0; 
+const int ci = i;
+a) g(i)
+T has type int. Val has type int.
+b) g(ci)
+T has type int (top level const ignored). Val has type int.
+c) g(i*ci) 
+T has type int. Val has type int.
+
+template <typename T> void g(const T& val); 
+int i = 0; 
+const int ci = i;
+a) g(i)
+T has type int. Val has type const int &
+b) g(ci)
+T has type int. Val has type const int &
+c) g(i*ci)
+T has type int. Val has type const int &
+```
+
+### Exercise 16.45
+> Given the following template, explain what happens if we call g on a literal value such as 42. What if we call g on a variable of type int?
+```c++
+template <typename T> 
+void g(T&& val) { vector<T> v; }
+
+/*
+for g(42) T is of type int, and val has type && && int, which decays to && int.
+vector<T > v is therefore deduced as vector<int> v.
+
+for g(i) T is deduced as type int &, and val has type && &int, which decays to & int.
+vector<T> v is therefore deduced as vector<int&> v, but we cannot have a vector of references,
+so the deduction is illegal.
+*/
+```
+
+### Exercise 16.46
+> Explain this loop from StrVec::reallocate in § 13.5 (p. 530):
+```c++
+for (size_t i = 0; i != size(); ++i)     
+ alloc.construct(dest++, std::move(*elem++));
+
+/*
+for each iteration of the for loop:
+the construct member of allocator type object alloc takes a string pointer and 
+an r-value reference as parameters. std::move)*elem++) converts the l-value object to which
+element points into an r-value in order to pass it into the construct method.
+*/
+```
+
+### [Exercise 16.47](https://github.com/ss-haze/cpp_primer/blob/main/ch16/16-47.cpp)
+
+### [Exercise 16.48](https://github.com/ss-haze/cpp_primer/blob/main/ch16/16-48.cpp)
+
+### Exercise 16.49
+> Explain what happens in each of the following calls:
+```
+see 16.50
+```
+
+### [Exercise 16.50](https://github.com/ss-haze/cpp_primer/blob/main/ch16/16-50.cpp)
+
+### Exercise 16.51
+> Determine what sizeof...(Args) sizeof...(rest) return for each call to foo in this section.
+```
+foo(i, s, 42, d);    // sizeof..Args and sizeof...(rest) are 3
+foo(s, 42, "hi");    // sizeof..Args and sizeof...(rest) are 2
+foo(d, s);           // sizeof..Args and sizeof...(rest) are 1
+foo("hi");           // sizeof..Args and sizeof...(rest) are 0f
+```
+
+### [Exercise 16.52](https://github.com/ss-haze/cpp_primer/blob/main/ch16/16-52.cpp)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
