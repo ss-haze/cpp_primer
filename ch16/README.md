@@ -462,11 +462,11 @@ constructed shared_ptr is returned by value.
 ```
 Specializations do not not participate in function matching, 
 therefore a specialization is considered by the compiler only
-if the base function is viable and is the best match, i.e., after
-the overload resolution had taken place.
+if the general template function is viable and is the best match, 
+i.e., after function matching has occured.
 
-By contrast, overloaded functions are preferred over all
-other overloads in the case of an equally good match.
+An overloaded function on the other hand is preferred over
+other overloads if that function is the best match.
 ```
 
 ### Exercise 16.67
