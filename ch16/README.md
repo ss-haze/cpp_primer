@@ -402,10 +402,86 @@ see 16.50
 foo(i, s, 42, d);    // sizeof..Args and sizeof...(rest) are 3
 foo(s, 42, "hi");    // sizeof..Args and sizeof...(rest) are 2
 foo(d, s);           // sizeof..Args and sizeof...(rest) are 1
-foo("hi");           // sizeof..Args and sizeof...(rest) are 0f
+foo("hi");           // sizeof..Args and sizeof...(rest) are 0
 ```
 
 ### [Exercise 16.52](https://github.com/ss-haze/cpp_primer/blob/main/ch16/16-52.cpp)
+
+### [Exercise 16.53](https://github.com/ss-haze/cpp_primer/blob/main/ch16/16-53.cpp)
+
+### Exercise 16.54
+> What happens if we call print on a type that doesn’t have an << operator?
+```
+We will get a compilation error
+```
+
+### Exercise 16.55
+>Explain how the variadic version of print would execute if we declared the nonvariadic version of print after the definition of the variadic version.
+```
+We get the error: no matching function for call to 'print(std::ostream&)'
+```
+
+### Exercise 16.59
+> Assuming s is a string, explain svec.emplace_back(s).
+```
+s is an l-value. Args is &s, and args is && &s, which collapses to &s.
+std::forward<Args>(args).. will forward &s to the string constructor to build the element.
+```
+
+### Exercise 16.60
+> Explain how make_shared (§ 12.1.1, p. 451) works.
+```
+make_shared is a variadic template function of the shared_ptr class of the form:
+
+template <typename T, typename... Args)
+shared_ptr<T> make_shared(Args&&... args);
+
+It takes a function parameter pack of varying types and returns a shared_ptr
+pointing to a dynamically allocated object of type T.
+Inside its body, make_shared expands the function parameter pack and forwards
+them (as arguments) to the 'new' expression to allocate a block of memory of
+type T.  The pointer returned from new is passed to shared_ptr constructor that
+takes a built-in pointer (T*) and an optional callable object. The newly
+constructed shared_ptr is returned by value.
+```
+
+### [Exercise 16.61](https://github.com/ss-haze/cpp_primer/blob/main/ch16/16-61.cpp)
+
+### [Exercise 16.62](https://github.com/ss-haze/cpp_primer/blob/main/ch16/16-62.cpp)
+
+### [Exercise 16.63](https://github.com/ss-haze/cpp_primer/blob/main/ch16/16-63.cpp)
+
+### [Exercise 16.64](https://github.com/ss-haze/cpp_primer/blob/main/ch16/16-64.cpp)
+
+### [Exercise 16.65](https://github.com/ss-haze/cpp_primer/blob/main/ch16/16-65.cpp)
+
+
+
+### Exercise 16.66
+> What are the advantages and disadvantages of overloading these debug_rep functions as compared to defining specializations?
+```
+Specializations do not not participate in function matching, 
+therefore a specialization is considered by the compiler only
+if the base function is viable and is the best match, i.e., after
+the overload resolution had taken place.
+
+By contrast, overloaded functions are preferred over all
+other overloads in the case of an equally good match.
+```
+
+### Exercise 16.67
+> Would defining these specializations affect function matching
+for debug_rep? If so, how? If not, why not?
+```
+No. A specialization is a template instantiation, not a definition
+for a potential overload. Specializations do not affect function matching.
+If a general template is viable after function matching, and if a specialization
+of that template is available and applicable, it will be chosen.
+```
+
+
+
+
 
 
 
